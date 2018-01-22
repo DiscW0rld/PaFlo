@@ -14,7 +14,7 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="200dp"
         android:text="@string/Headline"
         android:textAlignment="center"
          />
@@ -36,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Zu den einzelnen Lektionen "
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="center_vertical"
         />
 
     <Space
