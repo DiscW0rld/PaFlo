@@ -25,6 +25,8 @@
         android:layout_height="wrap_content"
         android:text="Definitionssammlung"
         android:layout_gravity="center_horizontal"
+
+
         />
 
     <Space
