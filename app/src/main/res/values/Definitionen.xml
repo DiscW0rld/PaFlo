@@ -1,7 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <definition name="alphabet">
+        <begriff>Alphabet</begriff>
+        <erklaerung>
+            Ein <b>Alphabet</b> ist eine endliche Menge von Buchstaben
+            <math xmlns="http://www.w3.org/1998/Math/MathML"><munderover><mo>&#x2211;</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mn>500</mn></munderover>
+            </math>
+        </erklaerung>
+        <lektion> Lektion 1 </lektion>
+    </definition>
 
-    <string name="Buch">Ein Buch hat Seiten</string>
-    <string name="Seite">Eine Seite hat Zeilen</string>
+    <definition name="wort_laenge">
+        <begriff>Länge eines Wortes</begriff>
+        <erklaerung>
+            <math xmlns="http://www.w3.org/1998/Math/MathML"><munderover><mo>&#x2211;</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mn>500</mn></munderover>
+            </math>
+        </erklaerung>
+        <lektion> Lektion 1 </lektion>
+    </definition>
+
+    <definition>
+        <begriff>Alphabet</begriff>
+        <erklaerung>
+            Sei
+        </erklaerung>
+        <lektion> Lektion 1 </lektion>
+    </definition>
+
+    <definition>
+        <begriff>Alphabet</begriff>
+        <erklaerung>
+            Sei
+        </erklaerung>
+        <lektion> Lektion 1 </lektion>
+    </definition>
+
+    <definition>
+        <begriff>Alphabet</begriff>
+        <erklaerung>
+            Sei
+        </erklaerung>
+        <lektion> Lektion 1 </lektion>
+    </definition>
+
+    <definition>
+        <begriff>Alphabet</begriff>
+        <erklaerung>
+            Sei
+        </erklaerung>
+        <lektion> Lektion 1 </lektion>
+    </definition>
+
+    <definition>
+        <begriff>Alphabet</begriff>
+        <erklaerung>
+            Sei
+        </erklaerung>
+        <lektion> Lektion 1 </lektion>
+    </definition>
+
+    <definition>
+        <begriff>Alphabet</begriff>
+        <erklaerung>
+            Sei
+        </erklaerung>
+        <lektion> Lektion 1 </lektion>
+    </definition>
 
 </resources>
