@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="Buch">Ein Buch hat Seiten</string>
+    <string name="Seite">Eine Seite hat Zeilen</string>
+
+</resources>
