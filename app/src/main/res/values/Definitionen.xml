@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name = "definitionen">
-    y
-    </string-array>
+
     <definition name="alphabet">
         <begriff>Alphabet</begriff>
         <erklaerung>
@@ -71,4 +69,3 @@
     </definition>
 
 </resources>
-</string_array>
