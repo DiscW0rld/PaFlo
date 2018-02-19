@@ -1,74 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name = "definitionen">
-    y
+        <item>alphabet</item>
+        <item>wort</item>
+        <item>wort_laenge</item>
     </string-array>
-    <definition name="alphabet">
+    <string name="Alphabet">
         <begriff>Alphabet</begriff>
         <erklaerung>
             Ein <b>Alphabet</b> ist eine endliche Menge von Buchstaben
-            <math xmlns="http://www.w3.org/1998/Math/MathML"><munderover><mo>&#x2211;</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mn>500</mn></munderover>
-            </math>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mi>&#x3A3;</mi><mo>=</mo><mo>{</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub><mo>,</mo><mo>.</mo><mo>.</mo><mo>.</mo><mo>,</mo><msub><mi>x</mi><mi>m</mi></msub><mo>}</mo></math>
         </erklaerung>
         <lektion> Lektion 1 </lektion>
-    </definition>
+    </string>
+    <string name = "Wort">
+        <begriff>Wort</begriff>
+        <erklaerung>
 
-    <definition name="wort_laenge">
+        </erklaerung>
+    </string>
+
+    <string name="Wort_laenge">
         <begriff>Länge eines Wortes</begriff>
         <erklaerung>
             <math xmlns="http://www.w3.org/1998/Math/MathML"><munderover><mo>&#x2211;</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mn>500</mn></munderover>
             </math>
         </erklaerung>
         <lektion> Lektion 1 </lektion>
-    </definition>
-
-    <definition>
-        <begriff>Alphabet</begriff>
-        <erklaerung>
-            Sei
-        </erklaerung>
-        <lektion> Lektion 1 </lektion>
-    </definition>
-
-    <definition>
-        <begriff>Alphabet</begriff>
-        <erklaerung>
-            Sei
-        </erklaerung>
-        <lektion> Lektion 1 </lektion>
-    </definition>
-
-    <definition>
-        <begriff>Alphabet</begriff>
-        <erklaerung>
-            Sei
-        </erklaerung>
-        <lektion> Lektion 1 </lektion>
-    </definition>
-
-    <definition>
-        <begriff>Alphabet</begriff>
-        <erklaerung>
-            Sei
-        </erklaerung>
-        <lektion> Lektion 1 </lektion>
-    </definition>
-
-    <definition>
-        <begriff>Alphabet</begriff>
-        <erklaerung>
-            Sei
-        </erklaerung>
-        <lektion> Lektion 1 </lektion>
-    </definition>
-
-    <definition>
-        <begriff>Alphabet</begriff>
-        <erklaerung>
-            Sei
-        </erklaerung>
-        <lektion> Lektion 1 </lektion>
-    </definition>
+    </string>
 
 </resources>
-</string_array>
