@@ -1,5 +1,6 @@
 package com.example.florian.projekt;
 
+import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,15 +11,8 @@ import android.widget.TextView;
 
 public class Definition extends AppCompatActivity {
 
-    String[] names = {"Alphabet" , " Wortlänge" };
-    String[] beschreibung = {" ist eine endliche Menge von Buchstaben " , " Länge eines Wortes " };
     Spinner spinner;
     TextView besch;
-    ArrayAdapter<String> adapter;
-
-
-
-
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,10 +20,14 @@ public class Definition extends AppCompatActivity {
 
        spinner = (Spinner) findViewById(R.id.spinner);
        besch = (TextView) findViewById(R.id.textview);
-       adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1,names);
+       ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.definitionen, android.R.layout.simple_spinner_item);
        spinner.setAdapter(adapter);
+        Resources res = getResources();
+        final String[] beschreibung = res.getStringArray(R.array.erklaerungen);
 
-       spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
            @Override
            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                switch (position){

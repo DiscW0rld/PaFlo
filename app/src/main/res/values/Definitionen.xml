@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name = "definitionen">
-        <item>alphabet</item>
-        <item>wort</item>
-        <item>wort_laenge</item>
+        <item>Alphabet</item>
+        <item>Wort</item>
+        <item>Wortlänge</item>
     </string-array>
+
+    <string-array name="erklaerungen">
+        <item>
+            Ein <b>Alphabet</b> ist eine endliche Menge von Buchstaben
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mi>&#x3A3;</mi><mo>=</mo><mo>{</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub><mo>,</mo><mo>.</mo><mo>.</mo><mo>.</mo><mo>,</mo><msub><mi>x</mi><mi>m</mi></msub><mo>}</mo></math>
+        </item>
+        <item>
+            Ein Wort ist eine (endliche) Menge aus einer (endlichen) Menge von Buchstaben.
+        </item>
+        <item>
+            Die Länge eines Wortes ist definiert durch die Anzahl seiner Buchstaben.
+        </item>
+    </string-array>
+
     <string name="Alphabet">
         <begriff>Alphabet</begriff>
         <erklaerung>
@@ -20,7 +35,6 @@
 
         </erklaerung>
     </string>
-
     <string name="Wort_laenge">
         <begriff>Länge eines Wortes</begriff>
         <erklaerung>
