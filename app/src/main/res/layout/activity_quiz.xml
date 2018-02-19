@@ -12,18 +12,16 @@
     tools:context="com.example.florian.projekt.MainActivity">
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:text="@string/Headline"
-        android:textAlignment="center"
-        />
-
-    <Button
-        android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Definition"
+        android:text="Hier steht eine Frage" />
+
+
+    <Button
+        android:id="@+id/antwort_a"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Antwort A"
         android:layout_gravity="center_horizontal"
 
 
@@ -34,10 +32,10 @@
         android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/antwort_b"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Lektionen "
+        android:text="Antwort B "
         android:layout_gravity="center_vertical"
         />
 
@@ -46,11 +44,23 @@
         android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/antwort_c"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Quiz"
+        android:text="Antwort C"
+        />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/antwort_d"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Antwort D"
         />
 
     <Space

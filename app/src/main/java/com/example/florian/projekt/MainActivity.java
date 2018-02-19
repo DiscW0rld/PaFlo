@@ -14,26 +14,32 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       final Button def = (Button) findViewById(R.id.button3);
-       final Button qui = (Button) findViewById(R.id.button2);
+        final Button definition = (Button) findViewById(R.id.definition);
+        final Button lektion = (Button) findViewById(R.id.lektion);
+        final Button quiz = (Button) findViewById(R.id.quiz);
+        final Button beenden = (Button) findViewById(R.id.beenden);
 
-       def.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-
-
-                   System.exit(0);
-               }
-
-       });
-
-        qui.setOnClickListener(new View.OnClickListener() {
+        definition.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 int ce = v.getId();
 
-                if(ce == R.id.button2){
+                if(ce == R.id.definition){
+
+                    Intent intent = new Intent(MainActivity.this, Definition.class);
+                    startActivity(intent);
+                }
+            }
+
+        });
+        quiz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int ce = v.getId();
+
+                if(ce == R.id.quiz){
 
                     Intent intent = new Intent(MainActivity.this, Quiz.class);
                     startActivity(intent);
@@ -41,5 +47,15 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
+        beenden.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                System.exit(0);
+            }
+
+        });
+
     }
 }

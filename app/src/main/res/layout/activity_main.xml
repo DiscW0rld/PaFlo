@@ -20,7 +20,7 @@
          />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/definition"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Definitionssammlung"
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/lektion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Zu den einzelnen Lektionen "
@@ -46,7 +46,7 @@
         android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/quiz"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -56,6 +56,19 @@
     <Space
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/beenden"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Beenden"
+        />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 
 </LinearLayout>
 
