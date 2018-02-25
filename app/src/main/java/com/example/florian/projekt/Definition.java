@@ -13,17 +13,20 @@ public class Definition extends AppCompatActivity {
 
     Spinner spinner;
     TextView besch;
+    TextView defTitel;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_definition);
 
-       spinner = (Spinner) findViewById(R.id.spinner);
-       besch = (TextView) findViewById(R.id.textview);
+       spinner = (Spinner) findViewById(R.id.defAuswahl);
+       besch = (TextView) findViewById(R.id.defText);
+       defTitel = (TextView) findViewById(R.id.defName);
        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.definitionen, android.R.layout.simple_spinner_item);
        spinner.setAdapter(adapter);
         Resources res = getResources();
+        final String[] defNamen = res.getStringArray(R.array.definitionen);
         final String[] beschreibung = res.getStringArray(R.array.erklaerungen);
 
 
@@ -33,12 +36,12 @@ public class Definition extends AppCompatActivity {
                switch (position){
 
                    case 0:
-
+                       defTitel.setText(defNamen[position]);
                        besch.setText(beschreibung[position]);
                        break;
 
                    case 1:
-
+                       defTitel.setText(defNamen[position]);
                        besch.setText(beschreibung[position]);
                        break;
                }
