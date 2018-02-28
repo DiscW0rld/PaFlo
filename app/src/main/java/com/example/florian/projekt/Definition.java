@@ -44,6 +44,51 @@ public class Definition extends AppCompatActivity {
                        defTitel.setText(defNamen[position]);
                        besch.setText(beschreibung[position]);
                        break;
+                   case 2:
+                       defTitel.setText(defNamen[position]);
+                       besch.setText(beschreibung[position]);
+                       break;
+
+                   case 3:
+                       defTitel.setText(defNamen[position]);
+                       besch.setText(beschreibung[position]);
+                       break;
+                   case 4:
+                       defTitel.setText(defNamen[position]);
+                       besch.setText(beschreibung[position]);
+                       break;
+
+                   case 5:
+                       defTitel.setText(defNamen[position]);
+                       besch.setText(beschreibung[position]);
+                       break;
+                   case 6:
+                       defTitel.setText(defNamen[position]);
+                       besch.setText(beschreibung[position]);
+                       break;
+
+                   case 7:
+                       defTitel.setText(defNamen[position]);
+                       besch.setText(beschreibung[position]);
+                       break;
+                   case 8:
+                       defTitel.setText(defNamen[position]);
+                       besch.setText(beschreibung[position]);
+                       break;
+
+                   case 9:
+                       defTitel.setText(defNamen[position]);
+                       besch.setText(beschreibung[position]);
+                       break;
+                   case 10:
+                       defTitel.setText(defNamen[position]);
+                       besch.setText(beschreibung[position]);
+                       break;
+
+                   case 11:
+                       defTitel.setText(defNamen[position]);
+                       besch.setText(beschreibung[position]);
+                       break;
                }
            }
 
