@@ -34,6 +34,20 @@
         android:layout_height="wrap_content" />
 
     <Button
+        android:id="@+id/notation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Liste der Bezeichnungen"
+        android:layout_gravity="center_horizontal"
+
+
+        />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
         android:id="@+id/lektion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

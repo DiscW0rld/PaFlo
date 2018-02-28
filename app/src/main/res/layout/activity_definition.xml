@@ -5,27 +5,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingBottom="16dp"
-    android:paddingTop="16dp"
-    android:paddingLeft="38dp"
-    android:paddingRight="38dp"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
     tools:context="com.example.florian.projekt.MainActivity">
 
 
-
     <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        ></Spinner>
-
-    <TextView
-        android:id="@+id/textview"
-        android:textSize="22dp"
+        android:id="@+id/defAuswahl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="" />
+        android:drawSelectorOnTop="true"
+        android:entries="@array/definitionen"
+        android:textSize="22dp"/>
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
 
+    <TextView
+        android:id="@+id/defName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="26dp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <TextView
+        android:id="@+id/defText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="18dp"/>
 
 </LinearLayout>
