@@ -11,6 +11,11 @@
     android:paddingRight="38dp"
     tools:context="com.example.florian.projekt.MainActivity">
 
+    <!-- Folgende Überlegungen zum Quiz: Es gibt die Quizfragen und die Antworten als Array;
+    in den Antworten stehen erst alle richtigen Antworten zu allen Fragen,
+    danach eine falsche Antwort zu jeder Frage, dann eine zweite falsche Antwort und dann die dritte.
+    So können wir mit Modulo(#Quizfragen) auf dem Antwortarray arbeiten.-->
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
