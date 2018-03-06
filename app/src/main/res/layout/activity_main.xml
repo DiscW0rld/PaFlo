@@ -34,10 +34,10 @@
         android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/notation"
+        android:id="@+id/zurapp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Liste der Bezeichnungen"
+        android:text="Infos zur App"
         android:layout_gravity="center_horizontal"
 
 
