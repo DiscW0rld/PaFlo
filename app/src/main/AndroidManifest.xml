@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Bezeichnungen" />
+        <activity android:name=".AppInformationen" />
         <activity android:name=".Quiz" />
         <activity android:name=".Definition" />
     </application>

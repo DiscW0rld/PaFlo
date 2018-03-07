@@ -25,9 +25,9 @@ public class Definition extends AppCompatActivity {
        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.definitionen, android.R.layout.simple_spinner_item);
        spinner.setAdapter(adapter);
-        Resources res = getResources();
-        final String[] defNamen = res.getStringArray(R.array.definitionen);
-        final String[] beschreibung = res.getStringArray(R.array.erklaerungen);
+       Resources res = getResources();
+       final String[] defNamen = res.getStringArray(R.array.definitionen);
+       final String[] beschreibung = res.getStringArray(R.array.erklaerungen);
 
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

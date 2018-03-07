@@ -12,6 +12,7 @@
     tools:context="com.example.florian.projekt.MainActivity">
 
     <TextView
+        android:id="@+id/frage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Hier steht eine Frage" />
@@ -23,8 +24,6 @@
         android:layout_height="wrap_content"
         android:text="Antwort A"
         android:layout_gravity="center_horizontal"
-
-
         />
 
     <Space

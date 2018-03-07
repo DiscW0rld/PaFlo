@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name = "quizfragen">
+        <item>Frage 1</item>
+        <item>Frage 2</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+    <array name="Antworten">
+        <item>Richtige Antwort zu Frage 1</item>
+        <item>Richtige Antwort zu Frage 2</item>
+        <item>Falsche Antwort 1 zu Frage 1</item>
+        <item>Falsche Antwort 1 zu Frage 2</item>
+        <item>Falsche Antwort 2 zu Frage 1</item>
+        <item>Falsche Antwort 2 zu Frage 2</item>
+        <item>Falsche Antwort 3 zu Frage 1</item>
+        <item>Falsche Antwort 3 zu Frage 2</item>
+    </array>
+
+
+
+
+</resources>
