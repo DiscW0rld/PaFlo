@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <quizdata>
+        <question>
+
+        </question>
+        <RightAnswer>
+
+        </RightAnswer>
+        <WrAns1>
+
+        </WrAns1>
+        <WrAns2>
+
+        </WrAns2>
+        <WrAns3>
+
+        </WrAns3>
+    </quizdata>
+
+
+
     <string-array name = "quizfragen">
         <item>Frage 1</item>
         <item>Frage 2</item>
