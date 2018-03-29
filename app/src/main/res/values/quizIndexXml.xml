@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name = "QuizIndex">
+        <item>https://raw.githubusercontent.com/DiscW0rld/PaFlo-quiz/master/automatenquiz.xml</item>
+        <item>https://raw.githubusercontent.com/DiscW0rld/PaFlo-quiz/master/schulpaedaquiz.xml</item>
+    </array>
+    <array name = "QuizIndexNames">
+        <item> Automaten und Berechenbarkeit</item>
+        <item> Schulpädagogik </item>
+    </array>
+</resources>

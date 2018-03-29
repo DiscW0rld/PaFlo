@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name = "wifi_connected">
+        Wi-Fi reconnected
+    </string>
+    <string name="lost_connection">
+        Wi-Fi connection lost
+    </string>
+
+</resources>

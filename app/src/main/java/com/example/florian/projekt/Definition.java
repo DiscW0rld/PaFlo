@@ -11,9 +11,9 @@ import android.widget.TextView;
 
 public class Definition extends AppCompatActivity {
 
-    Spinner spinner;
-    TextView besch;
-    TextView defTitel;
+    private Spinner spinner;
+    private TextView besch;
+    private TextView defTitel;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

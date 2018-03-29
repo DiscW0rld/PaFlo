@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <quizname>Automaten und Berechenbarkeit</quizname>
+    <filename id="explizit_filename">Quiz_Automaten_und_Berechenbarkeit.xml</filename>
+    <quizdata tag="quizdata">
+        <question tag="question">
+            Frage 1
+        </question>
+        <RightAnswer tag="rightAnswer">
+            richtige Antwort zu Frage 1
+        </RightAnswer>
+        <WrAns1 tag="answers">
+            Falsche Antwort 1 zu Frage 1
+        </WrAns1>
+        <WrAns2 tag="answers">
+            Falsche Antwort 2 zu Frage 1
+        </WrAns2>
+        <WrAns3 tag="answers">
+            Falsche Antwort 3 zu Frage 1
+        </WrAns3>
+    </quizdata>
+
+    <quizdata tag="quizdata">
+        <question tag="question">
+            Frage 2
+        </question>
+        <RightAnswer tag="rightAnswer">
+            richtige Antwort zu Frage 2
+        </RightAnswer>
+        <WrAns1 tag="wrAns1">
+            Falsche Antwort 1 zu Frage 2
+        </WrAns1>
+        <WrAns2 tag="wrAns2">
+            Falsche Antwort 2 zu Frage 2
+        </WrAns2>
+        <WrAns3 tag="wrAns3">
+            Falsche Antwort 3 zu Frage 2
+        </WrAns3>
+    </quizdata>
+
+
+    <string-array name = "quizfragen">
+        <item>Frage 1</item>
+        <item>Frage 2</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+    <array name="Antworten">
+        <item>Richtige Antwort zu Frage 1</item>
+        <item>Richtige Antwort zu Frage 2</item>
+        <item>Falsche Antwort 1 zu Frage 1</item>
+        <item>Falsche Antwort 1 zu Frage 2</item>
+        <item>Falsche Antwort 2 zu Frage 1</item>
+        <item>Falsche Antwort 2 zu Frage 2</item>
+        <item>Falsche Antwort 3 zu Frage 1</item>
+        <item>Falsche Antwort 3 zu Frage 2</item>
+    </array>
+
+
+
+
+</resources>

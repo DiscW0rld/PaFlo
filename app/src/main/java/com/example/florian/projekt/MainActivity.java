@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
         final Button definition = (Button) findViewById(R.id.definition);
         final Button zurapp = (Button) findViewById(R.id.zurapp);
-        final Button lektion = (Button) findViewById(R.id.lektion);
+        //final Button lektion = (Button) findViewById(R.id.lektion);
         final Button quiz = (Button) findViewById(R.id.quiz);
         final Button beenden = (Button) findViewById(R.id.beenden);
 
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if(ce == R.id.quiz){
 
-                    Intent intent = new Intent(MainActivity.this, Quiz.class);
+                    Intent intent = new Intent(MainActivity.this, DoTheQuiz.class);
                     startActivity(intent);
                 }
             }

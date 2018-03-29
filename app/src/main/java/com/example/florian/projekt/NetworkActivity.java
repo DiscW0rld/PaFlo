@@ -9,7 +9,7 @@ import android.app.Activity;
 public class NetworkActivity extends Activity {
     public static final String WIFI = "Wi-Fi";
     public static final String ANY = "Any";
-    private static final String URL = "http://stackoverflow.com/feeds/tag?tagnames=android&sort=newest";
+    private static String URL = "https://raw.githubusercontent.com/DiscW0rld/PaFlo-quiz/master/quiz_automaten.xml";
 
     // Whether there is a Wi-Fi connection.
     private static boolean wifiConnected = false;
@@ -19,10 +19,9 @@ public class NetworkActivity extends Activity {
     public static boolean refreshDisplay = true;
     public static String sPref = null;
 
-    ...
 
     // Uses AsyncTask to download the XML feed from stackoverflow.com.
-    public void loadPage() {
+   /* public static void loadPage() {
 
         if((sPref.equals(ANY)) && (wifiConnected || mobileConnected)) {
             new DownloadXmlTask().execute(URL);
@@ -32,4 +31,5 @@ public class NetworkActivity extends Activity {
         } else {
             // show error
         }
-    }
+    */
+}
