@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Appinformationen">
+        <b>Was soll diese App leisten?</b>
+
+        \n\nNun, fangen wir zunächst an, was die App <b>nicht</b> leisten soll und kann. Sie ersetzt <b>nicht</b> die Lösung von Übungsaufgaben.
+        Sie ersetzt es <b>nicht</b>, sich mit dem Skript auseinanderzusetzen. Sie ersetzt es <b>nicht</b>, zur Übung zu gehen!
+        \n\n<b>Aber!</b>
+        \nDu kannst über die Lektionen alternative Erklärungsansätze zu den in der Vorlesung gebotenen finden.
+        \nDu kannst mit dem Quiz schnell und kompakt (aber nicht lückenlos!) abprüfen, ob du das Fundament gelegt hast, um bei den Übungsaufgaben mit der Denkarbeit zu beginnen.
+        \nDu kannst in der Definitionensammlung schnell und einfach deine Basis-Wissenslücken schließen, um mit dem echten Lernprozess beginnen zu können.
+        \n\n<b>Wie wird die App besser?</b>
+        \n\nWenn du Fragen oder Anmerkungen hast, um die App zu verbessern, hast du zwei Möglichkeiten.
+        \n\n1. Schreib uns! Wir können gern weitere Inhalte einpflegen
+        \n\n2. Die App ist, wie es sich für gute Apps gehört, Open Source und steht dir auf Github zum Klonen und Weiterverarbeiten bereit.
+        Wenn du etwas ergänzen oder verbessern möchtest, fühl dich jederzeit frei, dies zu tun.
+        Und hab keine Scheu, <b>auch, wenn du kein (Android-)Programmierpro bist</b>.
+        Gerade, wenn es nur das Hinzufügen von Informationen ist, reicht es, wenn du dir die bestehende Grundstruktur anschaust und die Information stimmig einfügst.
+        Mit einem Android-Telefon und einem USB-Kabel kannst du ganz unverkrampft testen, ob die App noch funktioniert oder nicht.
+        Und falls nicht, probier noch ein bisschen weiter oder installier sie notfalls einfach wieder neu.
+        \n\n<b>Welche Visionen haben wir?</b>
+        \n\nLangfristig fänden wir es toll, wenn es irgendwann die Funktion gibt, eigene Inhalte einfach und unkompliziert In-App einzufügen.
+        So kann jede und jeder die App personalisieren oder sogar auf andere Module erweitern.
+        \nDann könnten wir ganz flexibel im Bus, in der Bahn und von der Couch aus noch ein bisschen unser Wissen ausbauen und festigen!
+    </string>
+</resources>
