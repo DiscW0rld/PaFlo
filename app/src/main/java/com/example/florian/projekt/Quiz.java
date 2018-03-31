@@ -1,99 +1,120 @@
 package com.example.florian.projekt;
-
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-import org.xmlpull.v1.*;
-
-import java.io.IOException;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import java.util.*;
 
 public class Quiz extends AppCompatActivity {
 
-    public final String quizdata;
-    public final String question;
-    public final String rightAnswer;
-    public final String wrAns1;
-    public final String wrAns2;
-    public final String wrAns3;
+   public void mischen() {
+        for (int i = 1; i < 50; i++) {
 
-    private Quiz(String quizdata, String question, String rightAnswer, String wrAns1, String wrAns2, String wrAns3){
-        this.quizdata = quizdata;
-        this.question = question;
-        this.rightAnswer = rightAnswer;
-        this.wrAns1 = wrAns1;
-        this.wrAns2 = wrAns2;
-        this.wrAns3 = wrAns3;
-    }
-
-
-    private Quiz readQuiz(XmlPullParser parser) throws XmlPullParserException, IOException {
-        parser.require(XmlPullParser.START_TAG, ns, "entry");
-        String title = null;
-        String summary = null;
-        String link = null;
-        while (parser.next() != XmlPullParser.END_TAG) {
-            if (parser.getEventType() != XmlPullParser.START_TAG) {
-                continue;
-            }
-            String name = parser.getName();
-            if (name.equals("title")) {
-                title = readQuestion(parser);
-            } else if (name.equals("rightAnswer")) {
-                summary = readRightAnswer(parser);
-            } else if (name.equals("wrAns1")) {
-                link = readWrAns1(parser);
-            } else if (name.equals("wrAns2")) {
-                link = readWrAns2(parser);
-            } else if (name.equals("wrAns3")) {
-                link = readWrAns3(parser);
-            } else {
-                skip(parser);
-            }
+            int x = (int) (4 * Math.random());
+            int y = (int) (4 * Math.random());
+            String Puffer = antwortfragen[x];
+            antwortfragen[x] = antwortfragen[y];
+            antwortfragen[y] = Puffer;
         }
-        return new Quiz(quizdata, question, rightAnswer, wrAns1, wrAns2, wrAns3);
     }
+    String[] fragen = {"Ein Alphabet ist ...", "Frage 2", "Frage 3"};
+    String[] antworten = {"eine endliche Menge Buchstaben", "eine unendliche Menge Buchstaben", "eine endliche Menge von Wörtern", "eine endliche Menge von Wörtern und Buchstaben"};
+    String[] richtigeAntwort = {"eine endliche Menge Buchstaben"};
+    String[] antwortfragen = {antworten[0], antworten[1] , antworten[2], antworten[3]};
 
-    private String readQuestion(XmlPullParser parser) throws IOException, XmlPullParserException {
-        parser.require(XmlPullParser.START_TAG, ns, "title");
-        String title = readText(parser);
-        parser.require(XmlPullParser.END_TAG, ns, "title");
-        return title;
-    }
-    private String readRightAnswer(XmlPullParser parser) throws IOException, XmlPullParserException {
-        parser.require(XmlPullParser.START_TAG, ns, "title");
-        String title = readText(parser);
-        parser.require(XmlPullParser.END_TAG, ns, "title");
-        return title;
-    }
-    private String readWrAns1(XmlPullParser parser) throws IOException, XmlPullParserException {
-        parser.require(XmlPullParser.START_TAG, ns, "title");
-        String title = readText(parser);
-        parser.require(XmlPullParser.END_TAG, ns, "title");
-        return title;
-    }
-    private String readWrAns2(XmlPullParser parser) throws IOException, XmlPullParserException {
-        parser.require(XmlPullParser.START_TAG, ns, "title");
-        String title = readText(parser);
-        parser.require(XmlPullParser.END_TAG, ns, "title");
-        return title;
-    }
-    private String readWrAns3(XmlPullParser parser) throws IOException, XmlPullParserException {
-        parser.require(XmlPullParser.START_TAG, ns, "title");
-        String title = readText(parser);
-        parser.require(XmlPullParser.END_TAG, ns, "title");
-        return title;
-    }
-    private String readText(XmlPullParser parser) throws IOException, XmlPullParserException {
-        String result = "";
-        if (parser.next() == XmlPullParser.TEXT) {
-            result = parser.getText();
-            parser.nextTag();
-        }
-        return result;
-    }
+
+
+    int zufall = (int) (5*Math.random());
+    int[] reihenfolge = {1,2,3};
+    //shuffleArray(reihenfolge);
+    TextView frage;
+    Button button1,button2,button3,button4;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+
+        frage = (TextView) findViewById(R.id.frage);
+        frage.setText(fragen[0]);
+        mischen();
+        button1 = (Button) findViewById(R.id.antwort_a);
+        button1.setText(antwortfragen[0]);
+        button2 = (Button) findViewById(R.id.antwort_b);
+        button2.setText(antwortfragen[1]);
+        button3 = (Button) findViewById(R.id.antwort_c);
+        button3.setText(antwortfragen[2]);
+        button4 = (Button) findViewById(R.id.antwort_d);
+        button4.setText(antwortfragen[3]);
+
+
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                if (button1.getText().equals(richtigeAntwort[0]))
+                    button1.setBackgroundColor(0xFF00FF00);
+
+                else
+
+                    button1.setBackgroundColor(Color.RED);
+
+            }
+
+        });
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                if (button2.getText().equals(richtigeAntwort[0]))
+                    button2.setBackgroundColor(0xFF00FF00);
+
+                else
+
+                    button2.setBackgroundColor(Color.RED);
+
+            }
+
+        });
+
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                if (button3.getText().equals(richtigeAntwort[0]))
+                    button3.setBackgroundColor(0xFF00FF00);
+
+                else
+
+                    button3.setBackgroundColor(Color.RED);
+
+            }
+
+        });
+
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                if (button4.getText().equals(richtigeAntwort[0]))
+                    button4.setBackgroundColor(0xFF00FF00);
+
+                else
+
+                    button4.setBackgroundColor(Color.RED);
+
+            }
+
+        });
+
+
     }
+
 }

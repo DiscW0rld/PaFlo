@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    tools:context="com.example.florian.projekt.MainActivity">
+
+
+    <Button
+        android:id="@+id/neueDef"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nächste Definition"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <TextView
+        android:id="@+id/defName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hallo"
+        android:textSize="26dp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <Button
+        android:id="@+id/aufdecken"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Beschreibung aufdecken"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+
+    <TextView
+        android:id="@+id/defText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="18dp"/>
+
+
+</LinearLayout>

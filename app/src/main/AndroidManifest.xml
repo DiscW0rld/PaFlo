@@ -23,8 +23,9 @@
         <activity android:name=".Bezeichnungen" />
         <activity android:name=".AppInformationen" />
         <activity android:name=".Quiz" />
-        <activity android:name=".QuizXmlParser" />
+       
         <activity android:name=".Definition" />
+        <activity android:name=".Definitionsabfrage" />
     </application>
 
 </manifest>
