@@ -12,36 +12,36 @@ import android.widget.TextView;
 import org.xmlpull.v1.XmlPullParser;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Definition extends AppCompatActivity {
-    Definition definition = new Definition();
+public class Definition extends AppCompatActivity{
 
     private Spinner spinner; //der Spinner muss noch Einträge kriegen!!
     private TextView besch;
     private TextView defTitel;
-    private List<DefinitionXmlParser.DefinitionEntry> defTitelData = new ArrayList<DefinitionXmlParser.DefinitionEntry>();
 
+    DefinitionXmlParser definitionXmlParser = new DefinitionXmlParser();
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_definition);
 
 
         //mittelfristig kommt die xml von online
+
         XmlPullParser parser = getApplicationContext().getResources().getXml(R.xml.definitionen);
 
         spinner = (Spinner) findViewById(R.id.defAuswahl);
         besch = (TextView) findViewById(R.id.defText);
         defTitel = (TextView) findViewById(R.id.defName);
+        List<DefinitionXmlParser.DefinitionEntry> defTitelData = new ArrayList<>();
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.definitionen, android.R.layout.simple_spinner_item);
         spinner.setAdapter(adapter);
 
-
-        defTitelData = definition.DefinitionXmlParser.readDefinitions(parser);
-
+            //defTitelData = definitionXmlParser.parse(parser);
 
         Resources res = getResources();
         final String[] defNamen = res.getStringArray(R.array.definitionen);

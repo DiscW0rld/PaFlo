@@ -1,11 +1,14 @@
 package com.example.florian.projekt;
 
+import android.util.Xml;
+
 import com.example.florian.projekt.QuizXmlParser.QuizEntry;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,10 +19,27 @@ import java.util.List;
 
 public class DefinitionXmlParser extends GeneralXmlParser{
 
+    List<DefinitionEntry> defTitelData;
+
+    public List<DefinitionEntry> parse(InputStream in) throws XmlPullParserException, IOException {
+        try {
+            XmlPullParser parser = Xml.newPullParser();
+            parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
+            parser.setInput(in, null);
+            parser.nextTag();
+            return readDefinitions(parser);
+        } finally {
+            in.close();
+        }
+    }
+
+    /*DefinitionXmlParser(List<DefinitionEntry> defTitelData){
+        defTitelData = this.defTitelData;
+    }*/
 
     //Sammelt alles ein, was mit dem Tag "Definition" beginnt und endet,
     // ist also die Funktion, die ich in der Class "Definition" aufrufe, wenn ich eine Liste von Definitionseinträgen will
-    private List<DefinitionEntry> readDefinitions(XmlPullParser parser) throws XmlPullParserException, IOException {
+    public static List<DefinitionEntry> readDefinitions(XmlPullParser parser) throws XmlPullParserException, IOException {
         List<DefinitionEntry> defTitelData = new ArrayList<DefinitionEntry>();
 
         parser.require(XmlPullParser.START_TAG, ns, "");
@@ -47,14 +67,14 @@ public class DefinitionXmlParser extends GeneralXmlParser{
         return wrAns2;
     }
     //liest alles, was zwischen dem Starttag und Endtag "erklaerung" steht und gibt es zurück
-    private String readErklaerung(XmlPullParser parser) throws IOException, XmlPullParserException {
+    private static String readErklaerung(XmlPullParser parser) throws IOException, XmlPullParserException {
         parser.require(XmlPullParser.START_TAG, ns, "erklaerung");
         String wrAns2 = readText(parser);
         parser.require(XmlPullParser.END_TAG, ns, "erklaerung");
         return wrAns2;
     }
-    private DefinitionEntry readDefinitionEntry (XmlPullParser parser) throws XmlPullParserException, IOException {
-        parser.require(XmlPullParser.START_TAG, ns, "quizEntries");
+    private static DefinitionEntry readDefinitionEntry (XmlPullParser parser) throws XmlPullParserException, IOException {
+        parser.require(XmlPullParser.START_TAG, ns, "definition");
         String defTitel = null;
         String erklaerung = null;
 

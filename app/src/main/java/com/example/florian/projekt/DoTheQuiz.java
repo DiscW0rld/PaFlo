@@ -26,7 +26,7 @@ public class DoTheQuiz extends AppCompatActivity{
 
                 int ce = v.getId();
 
-                if (ce == R.id.definition) {
+                if (ce == R.id.new_quiz) {
 
                     Intent intent = new Intent(DoTheQuiz.this, AddNewQuiz.class);
                     startActivity(intent);

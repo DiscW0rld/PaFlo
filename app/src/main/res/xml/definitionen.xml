@@ -91,7 +91,7 @@
         </item>
     </string-array>
 
-    <string name="Alphabet">
+    <definition name="Alphabet">
         <begriff>Alphabet</begriff>
         <erklaerung>
             Ein <b>Alphabet</b> ist eine geordnete Menge von endlich vielen Buchstaben
@@ -99,8 +99,8 @@
             </mml:math>
         </erklaerung>
         <lektion> Lektion 1 </lektion>
-    </string>
-    <string name = "WortLaenge">
+    </definition>
+    <definition name = "WortLaenge">
         <begriff>Wort(länge)</begriff>
         <erklaerung>
             Eine Folge von <mml:math><mi>x</mi><mo>=</mo><msub><mi>x</mi><mn>1</mn></msub><mo>.</mo><mo>.</mo><mo>.</mo><msub><mi>x</mi><mi>n</mi></msub>
@@ -108,8 +108,8 @@
             Zeichen heißt <b>Wort</b> (der <b>Länge</b> <mml:math><mo>|</mo><mi>x</mi><mo>|</mo><mo>=</mo><mi>n</mi></mml:math> )
         </erklaerung>
         <lektion> Lektion 1 </lektion>
-    </string>
-    <string name="MengeAllerWoerter">
+    </definition>
+    <definition name="MengeAllerWoerter">
         <begriff>Menge aller Wörter</begriff>
         <erklaerung>
             Die Menge aller Wörter über <mml:math><mo>&#x2211;</mo></mml:math> ist
@@ -121,8 +121,8 @@
             enthält.
         </erklaerung>
         <lektion> Lektion 1</lektion>
-    </string>
-    <string name="LeeresWort">
+    </definition>
+    <definition name="LeeresWort">
         <begriff>Leeres Wort</begriff>
         <erklaerung>
             Das (einzige) Wort der Länge
@@ -132,8 +132,8 @@
             bezeichnen.
         </erklaerung>
         <lektion> Lektion 1 </lektion>
-    </string>
-    <string name="Sprache">
+    </definition>
+    <definition name="Sprache">
         <begriff>Sprache</begriff>
         <erklaerung>
             Jede Teilmenge
@@ -141,8 +141,8 @@
             heißt <b>Sprache</b> über dem Alphabet <mml:math><mi>&#x3A3;</mi></mml:math>.
         </erklaerung>
         <lektion> Lektion 1 </lektion>
-    </string>
-    <string name="SchnittSprachen">
+    </definition>
+    <definition name="SchnittSprachen">
         <begriff>Schnitt, Vereinigung, Komplement</begriff>
         <erklaerung>
             Seien <mml:math><mi>A</mi></mml:math>
@@ -161,54 +161,54 @@
             <mml:math><mi>A</mi></mml:math>.
         </erklaerung>
         <lektion> Lektion 1 </lektion>
-    </string>
+    </definition>
 
 
-    <string name="Konkatenation">
+    <definition name="Konkatenation">
         <begriff>Produkt/Konkatenation/Verkettung</begriff>
         <erklaerung>
             Das <b>Produkt (Verkettung, Konkatenation)</b> der Sprachen A und B ist
             <mml:math><mi>A</mi><mi>B</mi><mo>=</mo><mo>{</mo><mi>x</mi><mi>y</mi><mo>|</mo><mi>x</mi><mo>&#x2208;</mo><mi>A</mi><mo>,</mo><mi>y</mi><mo>&#x2208;</mo><mi>B</mi><mo>}</mo></mml:math>
         </erklaerung>
         <lektion> Lektion 1 </lektion>
-    </string>
+    </definition>
     Das <b>Produkt (Verkettung, Konkatenation)</b> der Sprachen A und B ist
     <mml:math><mi>A</mi><mi>B</mi><mo>=</mo><mo>{</mo><mi>x</mi><mi>y</mi><mo>|</mo><mi>x</mi><mo>&#x2208;</mo><mi>A</mi><mo>,</mo><mi>y</mi><mo>&#x2208;</mo><mi>B</mi><mo>}</mo></mml:math>
 
-    <string name="Potenz">
+    <definition name="Potenz">
         <begriff>Produkt/Konkatenation/Verkettung</begriff>
         <erklaerung>
         </erklaerung>
         <lektion> Lektion 1 </lektion>
-    </string>
-    <string name="Sternhuelle">
+    </definition>
+    <definition name="Sternhuelle">
         <begriff>Sternhülle, Plushülle</begriff>
         <erklaerung>
         </erklaerung>
         <lektion> Lektion 1 </lektion>
-    </string>
-    <string name="EndlicherAutomat">
+    </definition>
+    <definition name="EndlicherAutomat">
         <begriff>Produkt/Konkatenation/Verkettung</begriff>
         <erklaerung>
         </erklaerung>
         <lektion> Lektion 1 </lektion>
-    </string>
-    <string name="NFA">
+    </definition>
+    <definition name="NFA">
         <begriff>Produkt/Konkatenation/Verkettung</begriff>
         <erklaerung>
         </erklaerung>
         <lektion> Lektion 1 </lektion>
-    </string>
-    <string name="Grammatik">
+    </definition>
+    <definition name="Grammatik">
         <begriff>Produkt/Konkatenation/Verkettung</begriff>
         <erklaerung>
         </erklaerung>
         <lektion> Lektion 1 </lektion>
-    </string>
-    <string name="Grammatiktypen">
+    </definition>
+    <definition name="Grammatiktypen">
         <begriff>Produkt/Konkatenation/Verkettung</begriff>
         <erklaerung>
         </erklaerung>
         <lektion> Lektion 1 </lektion>
-    </string>
+    </definition>
 </resources>

@@ -10,6 +10,7 @@ import android.util.Log;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.net.URL;
 
@@ -35,7 +36,7 @@ public class DownloadAndSaveXml extends AppCompatActivity{
 
                 @Override
                 protected void onPreExecute() {
-                        super.onPreExecute();
+                       /* super.onPreExecute();
                         // Create a progressbar
                         pDialog = new ProgressDialog(getApplicationContext());
                         // Set progressbar title
@@ -44,11 +45,13 @@ public class DownloadAndSaveXml extends AppCompatActivity{
                         pDialog.setMessage("Loading...");
                         pDialog.setIndeterminate(false);
                         // Show progressbar
-                        pDialog.show();
+                        pDialog.show();*/
                 }
 
                 @Override
                 protected Void doInBackground(String... xmlURL) {
+
+
 
                         try {
                                 URL url = new URL(xmlURL[0]);
@@ -68,14 +71,21 @@ public class DownloadAndSaveXml extends AppCompatActivity{
                                 Log.e("Error", e.getMessage());
                                 e.printStackTrace();
                         }
+
+
+
                         return null;
                 }
         }
 
         public void saveXml(Context context, Document doc, String xmlName) {
                 FileOutputStream foStream;
+
                 try {
                         foStream = context.openFileOutput(xmlName, Context.MODE_PRIVATE);
+                        //File file = new File(getFilesDir() +  "/data/", xmlName);
+                        String dokument = doc.toString();
+                        foStream.write(dokument.getBytes());
                         //das eigentliche Speichern....?
                         foStream.close();
                 } catch (Exception e) {
