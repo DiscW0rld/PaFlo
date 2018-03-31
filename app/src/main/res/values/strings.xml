@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Pimp Your Vorlesung</string>
     <string name="Headline">PaFlo</string>
+    <string-array name="definitionen" />
+    <string-array name="erklaerungen" />
 </resources>

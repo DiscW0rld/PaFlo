@@ -1,16 +1,9 @@
 package com.example.florian.projekt;
-import java.io.FileOutputStream;
-import java.io.InputStream;
 
-import android.content.Context;
-import android.util.Log;
-import android.util.Xml;
-
-import org.w3c.dom.Document;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import java.io.IOException;
-import org.w3c.dom.Document;
+
 
 
 
@@ -80,7 +73,7 @@ public class GeneralXmlParser {
     }
 }
 
-/**
+/*
  * Created by patricia on 22.03.18.
  */
 

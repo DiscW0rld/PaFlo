@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <quizname>Automaten und Berechenbarkeit</quizname>
-    <filename id="explizit_filename">Quiz_Automaten_und_Berechenbarkeit.xml</filename>
+    <filename id="explicit_filename">Quiz_Automaten_und_Berechenbarkeit.xml</filename>
     <quizdata tag="quizdata">
         <question tag="question">
             Frage 1

@@ -5,15 +5,12 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.webkit.WebView;
 
 
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
-import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.net.URL;
 
 import javax.xml.parsers.DocumentBuilder;

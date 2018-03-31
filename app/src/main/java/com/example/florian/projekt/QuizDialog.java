@@ -7,8 +7,6 @@ import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.os.Bundle;
 
-import java.net.URL;
-
 /**
  * Created by patricia on 29.03.18.
  */

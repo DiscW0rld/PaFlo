@@ -9,31 +9,52 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class Definition extends AppCompatActivity {
+import org.xmlpull.v1.XmlPullParser;
 
-    private Spinner spinner;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Definition extends AppCompatActivity {
+    Definition definition = new Definition();
+
+    private Spinner spinner; //der Spinner muss noch Einträge kriegen!!
     private TextView besch;
     private TextView defTitel;
+    private List<DefinitionXmlParser.DefinitionEntry> defTitelData = new ArrayList<DefinitionXmlParser.DefinitionEntry>();
 
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_definition);
 
-       spinner = (Spinner) findViewById(R.id.defAuswahl);
-       besch = (TextView) findViewById(R.id.defText);
-       defTitel = (TextView) findViewById(R.id.defName);
-       ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+
+        //mittelfristig kommt die xml von online
+        XmlPullParser parser = getApplicationContext().getResources().getXml(R.xml.definitionen);
+
+        spinner = (Spinner) findViewById(R.id.defAuswahl);
+        besch = (TextView) findViewById(R.id.defText);
+        defTitel = (TextView) findViewById(R.id.defName);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.definitionen, android.R.layout.simple_spinner_item);
-       spinner.setAdapter(adapter);
-       Resources res = getResources();
-       final String[] defNamen = res.getStringArray(R.array.definitionen);
-       final String[] beschreibung = res.getStringArray(R.array.erklaerungen);
+        spinner.setAdapter(adapter);
+
+
+        defTitelData = definition.DefinitionXmlParser.readDefinitions(parser);
+
+
+        Resources res = getResources();
+        final String[] defNamen = res.getStringArray(R.array.definitionen);
+        final String[] beschreibung = res.getStringArray(R.array.erklaerungen);
 
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
            @Override
            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-               switch (position){
+               defTitel.setText(defNamen[position]);
+               besch.setText(beschreibung[position]);
+
+               /*switch (position){
 
                    case 0:
                        defTitel.setText(defNamen[position]);
@@ -89,7 +110,7 @@ public class Definition extends AppCompatActivity {
                        defTitel.setText(defNamen[position]);
                        besch.setText(beschreibung[position]);
                        break;
-               }
+               }*/
            }
 
            @Override

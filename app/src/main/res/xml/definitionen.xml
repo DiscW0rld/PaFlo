@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources xmlns:mml = "http://www.w3.org/1998/Math/MathML">
+
+    <string-array name = "definitionen">
+        <item>Alphabet/<mml:math><mi>&#x3A3;</mi></mml:math></item>
+        <item>Wort(länge)</item>
+        <item>Menge aller Wörter/<mml:math><mi>&#x3A3;</mi><mo>*</mo></mml:math></item>
+        <item>Leeres Wort/<mml:math><mi>&#x3B5;</mi></mml:math></item>
+        <item>Sprache</item>
+        <item>Schnitt, Vereinigung, Komplement</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="erklaerungen">
+        <item>
+            Ein <b>Alphabet</b> ist eine geordnete Menge von endlich vielen Buchstaben
+            <mml:math><mo>&#x2211;</mo><mo>=</mo><mo>{</mo><msub><mi>a</mi><mn>1</mn></msub><mo>,</mo><msub><mi>a</mi><mn>2</mn></msub><mo>,</mo><mo>.</mo><mo>.</mo><mo>.</mo><mo>,</mo><msub><mi>a</mi><mn>3</mn></msub><mo>}</mo>
+            </mml:math>.
+        </item>
+        <item>
+            Eine Folge <mml:math><mi>x</mi><mo>=</mo><msub><mi>x</mi><mn>1</mn></msub><mo>.</mo><mo>.</mo><mo>.</mo><msub><mi>x</mi><mi>n</mi></msub>
+        </mml:math> von <mml:math><mi>n</mi></mml:math>
+            Zeichen heißt
+            <b>Wort</b>
+            (der <b>Länge</b> <mml:math><mo>|</mo><mi>x</mi><mo>|</mo><mo>=</mo><mi>n</mi></mml:math>).
+        </item>
+        <item>
+            Die <b>Menge aller Wörter</b> über <mml:math><mo>&#x2211;</mo></mml:math> ist
+            <mml:math><mo>&#x2211;</mo><mo>*</mo><mo>=</mo><munder><mo largeop="true">&#x222A;</mo><mrow><mi>n</mi><mo>&#x2265;</mo><mn>0</mn></mrow></munder><msup><mi>&#x3A3;</mi><mi>n</mi></msup></mml:math> ,
+            wobei
+            <mml:math><mi>&#x3A3;</mi><mo>=</mo><mo>{</mo><msub><mi>x</mi><mn>1</mn></msub><mo>.</mo><mo>.</mo><mo>.</mo><msub><mi>x</mi><mi>n</mi></msub><mo>|</mo><mi>n</mi><mo>&#x2265;</mo><mn>0</mn><mtext>&#xA0;und&#xA0;</mtext><msub><mi>x</mi><mi>i</mi></msub><mo>&#x2208;</mo><mi>&#x3A3;</mi><mtext>&#xA0;f&#xFC;r&#xA0;</mtext><mi>i</mi><mo>=</mo><mn>1</mn><mo>,</mo><mo>.</mo><mo>.</mo><mo>.</mo><mo>,</mo><mi>n</mi><mo>}</mo></mml:math>
+            die Menge aller Wörter der Länge
+            <mml:math><mi>n</mi></mml:math>
+            enthält.
+        </item>
+        <item>
+            Das (einzige) Wort der Länge
+            <mml:math><mi>n</mi><mo>=</mo><mn>0</mn></mml:math>
+            ist das <b>leere Wort</b>, welches wir mit
+            <mml:math><mi>&#x3B5;</mi></mml:math>
+            bezeichnen.
+        </item>
+        <item>
+            Jede Teilmenge
+            <mml:math><mi>L</mi><mo>&#x2282;</mo><mi>&#x3A3;</mi><mo>*</mo></mml:math>
+            heißt <b>Sprache</b> über dem Alphabet <mml:math><mi>&#x3A3;</mi></mml:math>.
+        </item>
+        <item>
+            Seien <mml:math><mi>A</mi></mml:math>
+            und <mml:math><mi>B</mi></mml:math>
+            Sprachen über
+            <mml:math><mi>&#x3A3;</mi></mml:math>.
+            Dann ist
+            <mml:math><mi>A</mi><mo>&#x2229;</mo><mi>B</mi><mo>=</mo><mo>{</mo><mi>x</mi><mo>&#x2208;</mo><mi>&#x3A3;</mi><mo>*</mo><mo>|</mo><mi>x</mi><mo>&#x2208;</mo><mi>A</mi><mo>,</mo><mi>x</mi><mo>&#x2208;</mo><mi>B</mi><mo>}</mo></mml:math>
+            Der <b>Schnitt</b> von <mml:math><mi>A</mi></mml:math> und
+            <mml:math><mi>B</mi></mml:math>;
+            <mml:math><mi>A</mi><mo>&#x222A;</mo><mi>B</mi><mo>=</mo><mo>{</mo><mi>x</mi><mo>&#x2208;</mo><mi>&#x3A3;</mi><mo>*</mo><mo>|</mo><mi>x</mi><mo>&#x2208;</mo><mi>A</mi><mo>&#x2228;</mo><mi>x</mi><mo>&#x2208;</mo><mi>B</mi><mo>}</mo></mml:math>
+            die <b>Vereinigung</b> von
+            <mml:math><mi>A</mi></mml:math> und <mml:math><mi>B</mi></mml:math>;
+            <mml:math><mover><mi>A</mi><mo>&#xAF;</mo></mover><mo>=</mo><mo>{</mo><mi>x</mi><mo>&#x2208;</mo><mi>&#x3A3;</mi><mo>*</mo><mo>|</mo><mi>x</mi><mo>&#x2209;</mo><mi>A</mi><mo>}</mo></mml:math>
+            das <b>Komplement</b> von
+            <mml:math><mi>A</mi></mml:math>.
+        </item>
+        <item>
+
+        </item>
+        <item>
+
+        </item>
+        <item>
+
+        </item>
+        <item>
+
+        </item>
+        <item>
+
+        </item>
+        <item>
+
+        </item>
+        <item>
+
+        </item>
+    </string-array>
+
+    <string name="Alphabet">
+        <begriff>Alphabet</begriff>
+        <erklaerung>
+            Ein <b>Alphabet</b> ist eine geordnete Menge von endlich vielen Buchstaben
+            <mml:math><mo>&#x2211;</mo><mo>=</mo><mo>{</mo><msub><mi>a</mi><mn>1</mn></msub><mo>,</mo><msub><mi>a</mi><mn>2</mn></msub><mo>,</mo><mo>.</mo><mo>.</mo><mo>.</mo><mo>,</mo><msub><mi>a</mi><mn>3</mn></msub><mo>}</mo>
+            </mml:math>
+        </erklaerung>
+        <lektion> Lektion 1 </lektion>
+    </string>
+    <string name = "WortLaenge">
+        <begriff>Wort(länge)</begriff>
+        <erklaerung>
+            Eine Folge von <mml:math><mi>x</mi><mo>=</mo><msub><mi>x</mi><mn>1</mn></msub><mo>.</mo><mo>.</mo><mo>.</mo><msub><mi>x</mi><mi>n</mi></msub>
+        </mml:math> von <mml:math><mi>n</mi></mml:math>
+            Zeichen heißt <b>Wort</b> (der <b>Länge</b> <mml:math><mo>|</mo><mi>x</mi><mo>|</mo><mo>=</mo><mi>n</mi></mml:math> )
+        </erklaerung>
+        <lektion> Lektion 1 </lektion>
+    </string>
+    <string name="MengeAllerWoerter">
+        <begriff>Menge aller Wörter</begriff>
+        <erklaerung>
+            Die Menge aller Wörter über <mml:math><mo>&#x2211;</mo></mml:math> ist
+            <mml:math><mo>&#x2211;</mo><mo>*</mo><mo>=</mo><munder><mo largeop="true">&#x222A;</mo><mrow><mi>n</mi><mo>&#x2265;</mo><mn>0</mn></mrow></munder><msup><mi>&#x3A3;</mi><mi>n</mi></msup></mml:math> ,
+            wobei
+            <mml:math><mi>&#x3A3;</mi><mo>=</mo><mo>{</mo><msub><mi>x</mi><mn>1</mn></msub><mo>.</mo><mo>.</mo><mo>.</mo><msub><mi>x</mi><mi>n</mi></msub><mo>|</mo><mi>n</mi><mo>&#x2265;</mo><mn>0</mn><mtext>&#xA0;und&#xA0;</mtext><msub><mi>x</mi><mi>i</mi></msub><mo>&#x2208;</mo><mi>&#x3A3;</mi><mtext>&#xA0;f&#xFC;r&#xA0;</mtext><mi>i</mi><mo>=</mo><mn>1</mn><mo>,</mo><mo>.</mo><mo>.</mo><mo>.</mo><mo>,</mo><mi>n</mi><mo>}</mo></mml:math>
+            die Menge aller Wörter der Länge
+            <mml:math><mi>n</mi></mml:math>
+            enthält.
+        </erklaerung>
+        <lektion> Lektion 1</lektion>
+    </string>
+    <string name="LeeresWort">
+        <begriff>Leeres Wort</begriff>
+        <erklaerung>
+            Das (einzige) Wort der Länge
+            <mml:math><mi>n</mi><mo>=</mo><mn>0</mn></mml:math>
+            ist das <b>leere Wort</b>, welches wir mit
+            <mml:math><mi>&#x3B5;</mi></mml:math>
+            bezeichnen.
+        </erklaerung>
+        <lektion> Lektion 1 </lektion>
+    </string>
+    <string name="Sprache">
+        <begriff>Sprache</begriff>
+        <erklaerung>
+            Jede Teilmenge
+            <mml:math><mi>L</mi><mo>&#x2282;</mo><mi>&#x3A3;</mi><mo>*</mo></mml:math>
+            heißt <b>Sprache</b> über dem Alphabet <mml:math><mi>&#x3A3;</mi></mml:math>.
+        </erklaerung>
+        <lektion> Lektion 1 </lektion>
+    </string>
+    <string name="SchnittSprachen">
+        <begriff>Schnitt, Vereinigung, Komplement</begriff>
+        <erklaerung>
+            Seien <mml:math><mi>A</mi></mml:math>
+            und <mml:math><mi>B</mi></mml:math>
+            Sprachen über
+            <mml:math><mi>&#x3A3;</mi></mml:math>.
+            Dann ist
+            <mml:math><mi>A</mi><mo>&#x2229;</mo><mi>B</mi><mo>=</mo><mo>{</mo><mi>x</mi><mo>&#x2208;</mo><mi>&#x3A3;</mi><mo>*</mo><mo>|</mo><mi>x</mi><mo>&#x2208;</mo><mi>A</mi><mo>,</mo><mi>x</mi><mo>&#x2208;</mo><mi>B</mi><mo>}</mo></mml:math>
+            Der <b>Schnitt</b> von <mml:math><mi>A</mi></mml:math> und
+            <mml:math><mi>B</mi></mml:math>;
+            <mml:math><mi>A</mi><mo>&#x222A;</mo><mi>B</mi><mo>=</mo><mo>{</mo><mi>x</mi><mo>&#x2208;</mo><mi>&#x3A3;</mi><mo>*</mo><mo>|</mo><mi>x</mi><mo>&#x2208;</mo><mi>A</mi><mo>&#x2228;</mo><mi>x</mi><mo>&#x2208;</mo><mi>B</mi><mo>}</mo></mml:math>
+            die <b>Vereinigung</b> von
+            <mml:math><mi>A</mi></mml:math> und <mml:math><mi>B</mi></mml:math>;
+            <mml:math><mover><mi>A</mi><mo>&#xAF;</mo></mover><mo>=</mo><mo>{</mo><mi>x</mi><mo>&#x2208;</mo><mi>&#x3A3;</mi><mo>*</mo><mo>|</mo><mi>x</mi><mo>&#x2209;</mo><mi>A</mi><mo>}</mo></mml:math>
+            das <b>Komplement</b> von
+            <mml:math><mi>A</mi></mml:math>.
+        </erklaerung>
+        <lektion> Lektion 1 </lektion>
+    </string>
+
+
+    <string name="Konkatenation">
+        <begriff>Produkt/Konkatenation/Verkettung</begriff>
+        <erklaerung>
+            Das <b>Produkt (Verkettung, Konkatenation)</b> der Sprachen A und B ist
+            <mml:math><mi>A</mi><mi>B</mi><mo>=</mo><mo>{</mo><mi>x</mi><mi>y</mi><mo>|</mo><mi>x</mi><mo>&#x2208;</mo><mi>A</mi><mo>,</mo><mi>y</mi><mo>&#x2208;</mo><mi>B</mi><mo>}</mo></mml:math>
+        </erklaerung>
+        <lektion> Lektion 1 </lektion>
+    </string>
+    Das <b>Produkt (Verkettung, Konkatenation)</b> der Sprachen A und B ist
+    <mml:math><mi>A</mi><mi>B</mi><mo>=</mo><mo>{</mo><mi>x</mi><mi>y</mi><mo>|</mo><mi>x</mi><mo>&#x2208;</mo><mi>A</mi><mo>,</mo><mi>y</mi><mo>&#x2208;</mo><mi>B</mi><mo>}</mo></mml:math>
+
+    <string name="Potenz">
+        <begriff>Produkt/Konkatenation/Verkettung</begriff>
+        <erklaerung>
+        </erklaerung>
+        <lektion> Lektion 1 </lektion>
+    </string>
+    <string name="Sternhuelle">
+        <begriff>Sternhülle, Plushülle</begriff>
+        <erklaerung>
+        </erklaerung>
+        <lektion> Lektion 1 </lektion>
+    </string>
+    <string name="EndlicherAutomat">
+        <begriff>Produkt/Konkatenation/Verkettung</begriff>
+        <erklaerung>
+        </erklaerung>
+        <lektion> Lektion 1 </lektion>
+    </string>
+    <string name="NFA">
+        <begriff>Produkt/Konkatenation/Verkettung</begriff>
+        <erklaerung>
+        </erklaerung>
+        <lektion> Lektion 1 </lektion>
+    </string>
+    <string name="Grammatik">
+        <begriff>Produkt/Konkatenation/Verkettung</begriff>
+        <erklaerung>
+        </erklaerung>
+        <lektion> Lektion 1 </lektion>
+    </string>
+    <string name="Grammatiktypen">
+        <begriff>Produkt/Konkatenation/Verkettung</begriff>
+        <erklaerung>
+        </erklaerung>
+        <lektion> Lektion 1 </lektion>
+    </string>
+</resources>

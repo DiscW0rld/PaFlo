@@ -1,30 +1,12 @@
 package com.example.florian.projekt;
 
-import android.app.Dialog;
+
 import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.res.Resources;
-import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
-import android.util.Log;
+
 import android.widget.Button;
 import android.widget.TextView;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import org.xml.sax.InputSource;
-import org.xml.sax.Parser;
-import org.xmlpull.v1.XmlPullParser;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.net.URL;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 
 
 // Was soll hier passieren?

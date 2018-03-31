@@ -36,7 +36,7 @@ public class QuizXmlParser extends GeneralXmlParser {
     }
 
 
-    private List<QuizEntry> readFeed(XmlPullParser parser) throws XmlPullParserException, IOException {
+    private List<QuizEntry> readQuizzes(XmlPullParser parser) throws XmlPullParserException, IOException {
         List<QuizEntry> quizdata = new ArrayList<QuizEntry>();
 
         parser.require(XmlPullParser.START_TAG, ns, "");
