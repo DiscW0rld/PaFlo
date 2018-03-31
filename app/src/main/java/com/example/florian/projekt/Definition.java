@@ -49,6 +49,9 @@ public class Definition extends AppCompatActivity{
 
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
            @Override
            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                defTitel.setText(defNamen[position]);
@@ -106,12 +109,12 @@ public class Definition extends AppCompatActivity{
                        besch.setText(beschreibung[position]);
                        break;
 
-                   case 11:
-                       defTitel.setText(defNamen[position]);
-                       besch.setText(beschreibung[position]);
-                       break;
-               }*/
-           }
+                    case 11:
+                        defTitel.setText(defNamen[position]);
+                        besch.setText(beschreibung[position]);
+                        break;
+                }
+            }
 
            @Override
            public void onNothingSelected(AdapterView<?> parent) {
