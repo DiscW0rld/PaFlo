@@ -12,33 +12,23 @@ import java.util.*;
 
 public class Quiz extends AppCompatActivity {
 
-    /*private String[] shuffleArray(String[] antwortfragen){
-        for (int i = antwortfragen.length; i>-1; --i) {
-           int j = (int) (i);// * Math.random());
+    private String[] shuffleArray(String[] antwortfragen){
+        for (int i = antwortfragen.length -1; i>-1; --i) {
+           int j = (int) (i * Math.random());
             String helper = antwortfragen[i];
             antwortfragen[i] = antwortfragen[j];
             antwortfragen[j] = helper;
         }
         return antwortfragen;
     }
-*/
-   public void mischen() {
-        for (int i = 1; i < 50; i++) {
 
-            int x = (int) (4 * Math.random());
-            int y = (int) (4 * Math.random());
-            String Puffer = antwortfragen[x];
-            antwortfragen[x] = antwortfragen[y];
-            antwortfragen[y] = Puffer;
-        }
-    }
+
     String[] fragen = {"Ein Alphabet ist ...", "Frage 2", "Frage 3"};
     String[] antworten = {"eine endliche Menge Buchstaben", "eine unendliche Menge Buchstaben", "eine endliche Menge von Wörtern", "eine endliche Menge von Wörtern und Buchstaben"};
     String[] richtigeAntwort = {"eine endliche Menge Buchstaben"};
     String[] antwortfragen = {antworten[0], antworten[1] , antworten[2], antworten[3]};
 
-
-
+    
     TextView frage, richtigefragen, gesamtfragen;
     Button button1,button2,button3,button4,naechsteFrage;
     int richtig,gesamt,fra;
@@ -55,7 +45,8 @@ public class Quiz extends AppCompatActivity {
         gesamtfragen = (TextView) findViewById(R.id.gesamtfragen);
         frage = (TextView) findViewById(R.id.frage);
         frage.setText(fragen[fra]);
-        mischen();
+        antwortfragen = shuffleArray(antwortfragen);
+        //mischen();
         button1 = (Button) findViewById(R.id.antwort_a);
         button1.setText(antwortfragen[0]);
         button2 = (Button) findViewById(R.id.antwort_b);
