@@ -22,7 +22,7 @@
         </activity>
         <activity android:name=".Bezeichnungen" />
         <activity android:name=".AppInformationen" />
-        <activity android:name=".DoTheQuiz" />
+        <activity android:name=".QuizAuswahl" />
         <activity android:name=".AddNewQuiz"/>
         <activity android:name=".Quiz" />
 

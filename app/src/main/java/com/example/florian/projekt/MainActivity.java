@@ -15,7 +15,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         final Button definition = (Button) findViewById(R.id.definition);
-        //final Button lektion = (Button) findViewById(R.id.lektion);
         final Button abfrage = (Button) findViewById(R.id.abfrage);
         final Button zurapp = (Button) findViewById(R.id.zurapp);
         final Button quiz = (Button) findViewById(R.id.quiz);
@@ -35,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
 
         abfrage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if(ce == R.id.quiz){
 
-                    Intent intent = new Intent(MainActivity.this, Quiz.class);
+                    Intent intent = new Intent(MainActivity.this, QuizAuswahl.class);
                     startActivity(intent);
                 }
             }

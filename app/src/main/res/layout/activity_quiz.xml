@@ -27,9 +27,8 @@
         android:id="@+id/antwort_a"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Antwort A"
         android:layout_gravity="center_horizontal"
-        />
+        android:text="Antwort A" />
 
     <Space
         android:layout_width="match_parent"

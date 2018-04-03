@@ -5,11 +5,23 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.sql.Array;
 import java.util.*;
 
 public class Quiz extends AppCompatActivity {
 
-   public void mischen() {
+    private String[] shuffleArray(String[] antwortfragen){
+        for (int i = antwortfragen.length; i>-1; --i) {
+           int j = (int) (i);// * Math.random());
+            String helper = antwortfragen[i];
+            antwortfragen[i] = antwortfragen[j];
+            antwortfragen[j] = helper;
+        }
+        return antwortfragen;
+    }
+
+   /*public void mischen() {
         for (int i = 1; i < 50; i++) {
 
             int x = (int) (4 * Math.random());
@@ -18,7 +30,7 @@ public class Quiz extends AppCompatActivity {
             antwortfragen[x] = antwortfragen[y];
             antwortfragen[y] = Puffer;
         }
-    }
+    }*/
     String[] fragen = {"Ein Alphabet ist ...", "Frage 2", "Frage 3"};
     String[] antworten = {"eine endliche Menge Buchstaben", "eine unendliche Menge Buchstaben", "eine endliche Menge von Wörtern", "eine endliche Menge von Wörtern und Buchstaben"};
     String[] richtigeAntwort = {"eine endliche Menge Buchstaben"};
@@ -26,9 +38,8 @@ public class Quiz extends AppCompatActivity {
 
 
 
-    int zufall = (int) (5*Math.random());
-    int[] reihenfolge = {1,2,3};
-    //shuffleArray(reihenfolge);
+
+
     TextView frage;
     Button button1,button2,button3,button4;
 
@@ -39,7 +50,7 @@ public class Quiz extends AppCompatActivity {
 
         frage = (TextView) findViewById(R.id.frage);
         frage.setText(fragen[0]);
-        mischen();
+        antwortfragen = shuffleArray(antworten);
         button1 = (Button) findViewById(R.id.antwort_a);
         button1.setText(antwortfragen[0]);
         button2 = (Button) findViewById(R.id.antwort_b);
@@ -49,10 +60,12 @@ public class Quiz extends AppCompatActivity {
         button4 = (Button) findViewById(R.id.antwort_d);
         button4.setText(antwortfragen[3]);
 
-
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                button4.setBackgroundResource(android.R.drawable.btn_default);
+                button2.setBackgroundResource(android.R.drawable.btn_default);
+                button3.setBackgroundResource(android.R.drawable.btn_default);
 
 
                 if (button1.getText().equals(richtigeAntwort[0]))
@@ -65,10 +78,12 @@ public class Quiz extends AppCompatActivity {
             }
 
         });
-
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                button1.setBackgroundResource(android.R.drawable.btn_default);
+                button4.setBackgroundResource(android.R.drawable.btn_default);
+                button3.setBackgroundResource(android.R.drawable.btn_default);
 
 
                 if (button2.getText().equals(richtigeAntwort[0]))
@@ -81,10 +96,12 @@ public class Quiz extends AppCompatActivity {
             }
 
         });
-
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                button1.setBackgroundResource(android.R.drawable.btn_default);
+                button2.setBackgroundResource(android.R.drawable.btn_default);
+                button4.setBackgroundResource(android.R.drawable.btn_default);
 
 
                 if (button3.getText().equals(richtigeAntwort[0]))
@@ -93,11 +110,27 @@ public class Quiz extends AppCompatActivity {
                 else
 
                     button3.setBackgroundColor(Color.RED);
+            }
 
+        });
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                button1.setBackgroundResource(android.R.drawable.btn_default);
+                button2.setBackgroundResource(android.R.drawable.btn_default);
+                button3.setBackgroundResource(android.R.drawable.btn_default);
+                if (button4.getText().equals(richtigeAntwort[0]))
+                    button4.setBackgroundColor(0xFF00FF00);
+
+                else
+                    button4.setBackgroundColor(Color.RED);
             }
 
         });
 
+
+/*
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,7 +146,7 @@ public class Quiz extends AppCompatActivity {
             }
 
         });
-
+*/
 
     }
 

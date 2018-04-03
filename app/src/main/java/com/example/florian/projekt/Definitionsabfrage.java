@@ -26,7 +26,7 @@ public class Definitionsabfrage extends AppCompatActivity {
         Resources res = getResources();
         final String[] defNamen = res.getStringArray(R.array.definitionen);
         final String[] beschreibung = res.getStringArray(R.array.erklaerungen);
-        final int zufall = (int) (3 * Math.random());
+        final int zufall = (int) (defNamen.length * Math.random());
         defTitel.setText(defNamen[zufall]);
 
 
@@ -44,7 +44,7 @@ public class Definitionsabfrage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                final int zufall = (int) (3 * Math.random());
+                final int zufall = (int) (defNamen.length *Math.random());
                 defTitel.setText(defNamen[zufall]);
                 besch.setText("");
 

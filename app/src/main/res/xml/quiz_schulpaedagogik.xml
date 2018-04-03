@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <quizname>Schulpädagogik</quizname>
+    <filename id="explicit_filename">Quiz_Schulpaedagogik.xml</filename>
+    <quizdata tag="quizdata">
+        <question tag="question">
+            Schulpädafrage 1
+        </question>
+        <RightAnswer tag="rightAnswer">
+            richtige Antwort Schulpäda 1
+        </RightAnswer>
+        <WrAns1 tag="answers">
+            Falsche Antwort Schulpäda 1
+        </WrAns1>
+        <WrAns2 tag="answers">
+            Falsche Antwort Schulpäda 1
+        </WrAns2>
+        <WrAns3 tag="answers">
+            Falsche Antwort Schulpäda 1
+        </WrAns3>
+    </quizdata>
+
+    <quizdata tag="quizdata">
+        <question tag="question">
+            Schulpädafrage 2
+        </question>
+        <RightAnswer tag="rightAnswer">
+            richtige Antwort Schulpäda 2
+        </RightAnswer>
+        <WrAns1 tag="wrAns1">
+            Falsche Antwort Schulpäda 2
+        </WrAns1>
+        <WrAns2 tag="wrAns2">
+            Falsche Antwort Schulpäda 2
+        </WrAns2>
+        <WrAns3 tag="wrAns3">
+            Falsche Antwort Schulpäda 2
+        </WrAns3>
+    </quizdata>
+
+</resources>
