@@ -5,10 +5,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.sql.Array;
 import java.util.*;
 
 public class Quiz extends AppCompatActivity {
 
+    /*private String[] shuffleArray(String[] antwortfragen){
+        for (int i = antwortfragen.length; i>-1; --i) {
+           int j = (int) (i);// * Math.random());
+            String helper = antwortfragen[i];
+            antwortfragen[i] = antwortfragen[j];
+            antwortfragen[j] = helper;
+        }
+        return antwortfragen;
+    }
+*/
    public void mischen() {
         for (int i = 1; i < 50; i++) {
 
@@ -26,13 +38,9 @@ public class Quiz extends AppCompatActivity {
 
 
 
-    int zufall = (int) (5*Math.random());
-    int[] reihenfolge = {1,2,3};
-    //shuffleArray(reihenfolge);
-    int richtig,gesamt,fra;
     TextView frage, richtigefragen, gesamtfragen;
     Button button1,button2,button3,button4,naechsteFrage;
-
+    int richtig,gesamt,fra;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
