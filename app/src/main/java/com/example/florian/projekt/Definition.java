@@ -49,10 +49,71 @@ public class Definition extends AppCompatActivity{
 
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-           @Override
+            @Override
+
+
            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                defTitel.setText(defNamen[position]);
                besch.setText(beschreibung[position]);
+
+               /*switch (position){
+
+                   case 0:
+                       defTitel.setText(defNamen[position]);
+                       besch.setText(beschreibung[position]);
+                       break;
+
+                   case 1:
+                       defTitel.setText(defNamen[position]);
+                       besch.setText(beschreibung[position]);
+                       break;
+                   case 2:
+                       defTitel.setText(defNamen[position]);
+                       besch.setText(beschreibung[position]);
+                       break;
+
+                   case 3:
+                       defTitel.setText(defNamen[position]);
+                       besch.setText(beschreibung[position]);
+                       break;
+                   case 4:
+                       defTitel.setText(defNamen[position]);
+                       besch.setText(beschreibung[position]);
+                       break;
+
+                   case 5:
+                       defTitel.setText(defNamen[position]);
+                       besch.setText(beschreibung[position]);
+                       break;
+                   case 6:
+                       defTitel.setText(defNamen[position]);
+                       besch.setText(beschreibung[position]);
+                       break;
+
+                   case 7:
+                       defTitel.setText(defNamen[position]);
+                       besch.setText(beschreibung[position]);
+                       break;
+                   case 8:
+                       defTitel.setText(defNamen[position]);
+                       besch.setText(beschreibung[position]);
+                       break;
+
+                   case 9:
+                       defTitel.setText(defNamen[position]);
+                       besch.setText(beschreibung[position]);
+                       break;
+                   case 10:
+                       defTitel.setText(defNamen[position]);
+                       besch.setText(beschreibung[position]);
+                       break;
+
+                    case 11:
+                        defTitel.setText(defNamen[position]);
+                        besch.setText(beschreibung[position]);
+                        break;
+                        */
+
             }
 
            @Override

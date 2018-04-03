@@ -20,6 +20,7 @@
         android:id="@+id/frage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="40dp"
         android:text="Hier steht eine Frage" />
 
 
@@ -27,24 +28,20 @@
         android:id="@+id/antwort_a"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Antwort A"
+        android:layout_margin="5dp"
         android:layout_gravity="center_horizontal"
-        android:text="Antwort A" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        />
 
     <Button
         android:id="@+id/antwort_b"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Antwort B "
+        android:layout_margin="5dp"
         android:layout_gravity="center_vertical"
         />
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/antwort_c"
@@ -52,11 +49,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Antwort C"
+        android:layout_margin="5dp"
         />
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/antwort_d"
@@ -64,10 +59,28 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Antwort D"
+        android:layout_margin="5dp"
         />
 
-    <Space
+
+    <Button
+        android:id="@+id/naechsteFrage"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="40dp"
+        android:text="Nächste Frage" />
+
+    <TextView
+        android:id="@+id/richtigefragen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="richtige beantwortete Fragen: 0"  />
+
+    <TextView
+        android:id="@+id/gesamtfragen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Anzahl Fragen: 0" />
 
 </LinearLayout>
