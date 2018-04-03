@@ -51,7 +51,20 @@ public class QuizAuswahl extends AppCompatActivity{
 
 
         });
+        download.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                int ce = v.getId();
+
+                if(ce == R.id.new_quiz){
+
+                    Intent intent = new Intent(QuizAuswahl.this, AddNewQuiz.class);
+                    startActivity(intent);
+                }
+            }
+
+        });
 
         //man wählt ein bereits heruntergeladenes Quiz aus.
         //Es wird der Name der Datei angezeigt, die man öffnen möchte.

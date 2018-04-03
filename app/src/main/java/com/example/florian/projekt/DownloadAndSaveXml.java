@@ -23,10 +23,9 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 public class DownloadAndSaveXml extends AppCompatActivity{
 
-        private ProgressDialog pDialog;
         private String filename = "";
 
-        private static String xmlURL = "https://raw.githubusercontent.com/DiscW0rld/PaFlo-quiz/master/quiz_automaten.xml";
+        //private static String xmlURL = "https://raw.githubusercontent.com/DiscW0rld/PaFlo-quiz/master/quiz_automaten.xml";
 
         //um von außen auf die privaten Strings zugreifen zu können
         public void setFileName(String newName) { filename = newName; }
@@ -34,6 +33,7 @@ public class DownloadAndSaveXml extends AppCompatActivity{
 
         public class DownloadXML extends AsyncTask<String, Void, Void>{
 
+                private String xmlURL = "";
                 @Override
                 protected void onPreExecute() {
                        /* super.onPreExecute();
@@ -78,16 +78,20 @@ public class DownloadAndSaveXml extends AppCompatActivity{
                 }
         }
 
+
         public void saveXml(Context context, Document doc, String xmlName) {
-                FileOutputStream foStream;
+                FileOutputStream foStream = null;
 
                 try {
+
+                        //was macht context.??
                         foStream = context.openFileOutput(xmlName, Context.MODE_PRIVATE);
                         //File file = new File(getFilesDir() +  "/data/", xmlName);
                         String dokument = doc.toString();
                         foStream.write(dokument.getBytes());
                         //das eigentliche Speichern....?
                         foStream.close();
+
                 } catch (Exception e) {
                         Log.d("saveXml", "ERROR, fatal, emergency, fatal!!!1!11");
                         e.printStackTrace();

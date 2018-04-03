@@ -1,4 +1,5 @@
 package com.example.florian.projekt;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -166,17 +167,23 @@ public class Quiz extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                fra++;
-                frage.setText(fragen[fra]);
-                naechsteFrage.setEnabled(false);
-                button1.setBackgroundColor(Color.DKGRAY);
-                button2.setBackgroundColor(Color.DKGRAY);
-                button3.setBackgroundColor(Color.DKGRAY);
-                button4.setBackgroundColor(Color.DKGRAY);
-                button1.setEnabled(true);
-                button2.setEnabled(true);
-                button3.setEnabled(true);
-                button4.setEnabled(true);
+                if (fra < fragen.length - 1) {
+                    fra++;
+                    frage.setText(fragen[fra]);
+                    naechsteFrage.setEnabled(false);
+                    button1.setBackgroundColor(Color.DKGRAY);
+                    button2.setBackgroundColor(Color.DKGRAY);
+                    button3.setBackgroundColor(Color.DKGRAY);
+                    button4.setBackgroundColor(Color.DKGRAY);
+                    button1.setEnabled(true);
+                    button2.setEnabled(true);
+                    button3.setEnabled(true);
+                    button4.setEnabled(true);
+                }
+                else {
+                    Intent intent = new Intent(Quiz.this, QuizAuswahl.class);
+                    startActivity(intent);
+                }
             }
 
         });

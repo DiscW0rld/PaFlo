@@ -46,7 +46,7 @@ public class QuizXmlParser extends GeneralXmlParser {
             }
             String name = parser.getName();
             // Starts by looking for the entry tag
-            if (name.equals("quizEntries")) {
+            if (name.equals("quizdata")) {
                 quizdata.add(readQuiz(parser));
             } else {
                 skipTag(parser);
