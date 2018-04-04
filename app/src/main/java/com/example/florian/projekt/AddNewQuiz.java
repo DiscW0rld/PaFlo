@@ -36,6 +36,7 @@ public class AddNewQuiz extends DownloadAndSaveXml{
         setContentView(R.layout.activity_quiz);
         fragestellung = (TextView) findViewById(R.id.frage);
         // Execute DownloadXML AsyncTask
+        //setURL();
         new DownloadXML().execute(xmlURL);
 
 

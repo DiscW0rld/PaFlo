@@ -14,7 +14,7 @@ public class DoTheQuiz extends AppCompatActivity{
 
 
 
-    protected void onCreate(Bundle savedInstanceState) {
+    /*protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_quiz);
@@ -36,4 +36,5 @@ public class DoTheQuiz extends AppCompatActivity{
         });
     }
     //von Flo übernehmen
+    */
 }

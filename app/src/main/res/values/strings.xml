@@ -14,4 +14,9 @@
         <item>https://raw.githubusercontent.com/DiscW0rld/PaFlo-quiz/master/quiz_automaten.xml</item>
         <item>https://raw.githubusercontent.com/DiscW0rld/PaFlo-quiz/master/quiz_schulpaedagogik.xml</item>
     </string-array>
+
+    <string-array name="heruntergeladen">
+        <item>Quiz_Automaten_und_Berechenbarkeit.xml</item>
+        <item>quiz_schulpaedagogik.xml</item>
+    </string-array>
 </resources>

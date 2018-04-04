@@ -7,10 +7,23 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+
 import java.sql.Array;
 import java.util.*;
 
+import static com.example.florian.projekt.QuizAuswahl.getLink;
+import static com.example.florian.projekt.QuizXmlParser.getFileInput;
+
 public class Quiz extends AppCompatActivity {
+
+
+
+    String link = getLink();
+    List<QuizXmlParser.QuizEntry> thisQuiz = getFileInput(link);
+    List<QuizXmlParser.QuizEntry> testQuiz = QuizXmlParser.getExample();
+
 
     private String[] shuffleArray(String[] antwortfragen){
         for (int i = antwortfragen.length -1; i>-1; --i) {
@@ -28,7 +41,7 @@ public class Quiz extends AppCompatActivity {
     String[] richtigeAntwort = {"eine endliche Menge Buchstaben"};
     String[] antwortfragen = {antworten[0], antworten[1] , antworten[2], antworten[3]};
 
-    
+    //String[] fragen = new String[testQuiz.size()];
     TextView frage, richtigefragen, gesamtfragen;
     Button button1,button2,button3,button4,naechsteFrage;
     int richtig,gesamt,fra;
@@ -36,6 +49,11 @@ public class Quiz extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+
+
+        /*for (int i=0; i<testQuiz.size(); ++i){
+            fragen[i] = testQuiz.get(i).question;
+        }*/
 
         richtig = 0;
         gesamt = 0;

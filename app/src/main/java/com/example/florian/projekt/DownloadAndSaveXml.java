@@ -1,6 +1,5 @@
 package com.example.florian.projekt;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -10,10 +9,16 @@ import android.util.Log;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.URL;
 
+import javax.net.ssl.HttpsURLConnection;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -23,17 +28,18 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 public class DownloadAndSaveXml extends AppCompatActivity{
 
-        private String filename = "";
+        private String filename = "m";
 
         //private static String xmlURL = "https://raw.githubusercontent.com/DiscW0rld/PaFlo-quiz/master/quiz_automaten.xml";
 
         //um von außen auf die privaten Strings zugreifen zu können
-        public void setFileName(String newName) { filename = newName; }
+        public void setFileName(String newName) {
+                filename = newName; }
 
 
         public class DownloadXML extends AsyncTask<String, Void, Void>{
 
-                private String xmlURL = "";
+                private String xmlURL = "b";
                 @Override
                 protected void onPreExecute() {
                        /* super.onPreExecute();
@@ -51,10 +57,28 @@ public class DownloadAndSaveXml extends AppCompatActivity{
                 @Override
                 protected Void doInBackground(String... xmlURL) {
 
-
+                        HttpURLConnection urlConnection = null;
+                        String result = "";
 
                         try {
                                 URL url = new URL(xmlURL[0]);
+
+                                urlConnection = (HttpsURLConnection) url.openConnection();
+
+                                int code = urlConnection.getResponseCode();
+
+                                if(code==200){
+                                        InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+                                        if (in != null) {
+                                                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(in));
+                                                String line = "";
+
+                                                while ((line = bufferedReader.readLine()) != null)
+                                                        result += line;
+                                        }
+                                        in.close();
+                                }
+
                                 DocumentBuilderFactory dbf = DocumentBuilderFactory
                                         .newInstance();
                                 DocumentBuilder db = dbf.newDocumentBuilder();
@@ -63,12 +87,14 @@ public class DownloadAndSaveXml extends AppCompatActivity{
                                 doc.getDocumentElement().normalize();
 
                                 // das Element finden, das die ID explicit_filename hat,
-                                // dieses zu String konvertieren
-                                setFileName(doc.getElementById("explicit_filename").toString());
-                                saveXml(getApplicationContext(), doc, filename);
+                                // dieses den String zwischen Start- und Endtag konvertieren
+                                filename = doc.getElementById("explicit_filename").getTextContent();
+                                saveXml(result, filename);
+                                String test = result;
+                                Log.w("Inhalt", test);
 
                         } catch (Exception e) {
-                                Log.e("Error", e.getMessage());
+                                Log.e("Laden Error", e.getMessage());
                                 e.printStackTrace();
                         }
 
@@ -79,15 +105,18 @@ public class DownloadAndSaveXml extends AppCompatActivity{
         }
 
 
-        public void saveXml(Context context, Document doc, String xmlName) {
+        public void saveXml(String dokument, String xmlName) {
                 FileOutputStream foStream = null;
 
                 try {
 
                         //was macht context.??
-                        foStream = context.openFileOutput(xmlName, Context.MODE_PRIVATE);
+                        foStream = getApplicationContext().openFileOutput(xmlName, Context.MODE_PRIVATE);
                         //File file = new File(getFilesDir() +  "/data/", xmlName);
-                        String dokument = doc.toString();
+
+                        //hier muss noch was passieren... toString() macht Blödsinn draus.
+                        //String dokument = doc.toString();
+                        Log.w("Dokumentinhalt", dokument);
                         foStream.write(dokument.getBytes());
                         //das eigentliche Speichern....?
                         foStream.close();
@@ -97,6 +126,28 @@ public class DownloadAndSaveXml extends AppCompatActivity{
                         e.printStackTrace();
                 }
         }
+
+       /*public void saveXml(Document doc, String xmlName) {
+                FileOutputStream foStream = null;
+
+                try {
+
+                        //was macht context.??
+                        foStream = getApplicationContext().openFileOutput(xmlName, Context.MODE_PRIVATE);
+                        //File file = new File(getFilesDir() +  "/data/", xmlName);
+
+                        //hier muss noch was passieren... toString() macht Blödsinn draus.
+                        String dokument = doc.toString();
+                        Log.w("Dokumentinhalt", dokument);
+                        foStream.write(dokument.getBytes());
+                        //das eigentliche Speichern....?
+                        foStream.close();
+
+                } catch (Exception e) {
+                        Log.d("saveXml", "ERROR, fatal, emergency, fatal!!!1!11");
+                        e.printStackTrace();
+                }
+        }*/
 
 
 }

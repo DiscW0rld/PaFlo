@@ -13,14 +13,20 @@ import android.widget.TextView;
 
 public class QuizAuswahl extends AppCompatActivity{
 
-    Spinner quizlinkspinner;
     EditText quizlink;
-    Button download;
+    Spinner quizlinkspinner;
+    public static String linkname;
     Button startQuiz;
     Spinner downloaded_quizzes;
 
+    public static String getLink(){
+        return linkname;
+    }
 
     public void onCreate(Bundle savedInstanceState) {
+
+        Button download;
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_quiz);
 
@@ -57,7 +63,7 @@ public class QuizAuswahl extends AppCompatActivity{
 
                 int ce = v.getId();
 
-                if(ce == R.id.new_quiz){
+                if(ce == R.id.download_button){
 
                     Intent intent = new Intent(QuizAuswahl.this, AddNewQuiz.class);
                     startActivity(intent);
@@ -72,7 +78,7 @@ public class QuizAuswahl extends AppCompatActivity{
         //im Quizordner herausgesucht, geparst und verwendet.
         downloaded_quizzes = (Spinner) findViewById(R.id.offline_quizzes);
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
-                R.array.quizlinks, android.R.layout.simple_spinner_item);
+                R.array.heruntergeladen, android.R.layout.simple_spinner_item);
         downloaded_quizzes.setAdapter(adapter2);
 
         downloaded_quizzes.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -96,6 +102,8 @@ public class QuizAuswahl extends AppCompatActivity{
 
                 if(ce == R.id.start_quiz){
 
+                    linkname = downloaded_quizzes.getSelectedItem().toString();
+                    //.getFileInput(downloaded_quizzes.getSelectedItem().toString());
                     Intent intent = new Intent(QuizAuswahl.this, Quiz.class);
                     startActivity(intent);
                 }
