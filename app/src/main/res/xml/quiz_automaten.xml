@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <quiz>
     <quizname>Automaten und Berechenbarkeit</quizname>
     <filename id="explicit_filename">Quiz_Automaten_und_Berechenbarkeit.xml</filename>
     <quizdata tag="quizdata">
@@ -67,6 +68,6 @@
     </array>
 
 
-
+</quiz>
 
 </resources>

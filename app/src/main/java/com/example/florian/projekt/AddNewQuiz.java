@@ -38,6 +38,7 @@ public class AddNewQuiz extends DownloadAndSaveXml{
         // Execute DownloadXML AsyncTask
         new DownloadXML().execute(xmlURL);
 
+
     }
 
     /*private class DownloadXML extends AsyncTask<String, Void, Void>{

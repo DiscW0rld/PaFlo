@@ -61,7 +61,7 @@ public class GeneralXmlParser {
         }
         int depth = 1;
         while (depth != 0) {
-            switch (parser.next()) {
+            switch (parser.next()){
                 case XmlPullParser.END_TAG:
                     depth--;
                     break;

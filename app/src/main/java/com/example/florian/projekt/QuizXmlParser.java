@@ -50,7 +50,7 @@ public class QuizXmlParser extends GeneralXmlParser {
             }
             String name = parser.getName();
             // Starts by looking for the entry tag
-            if (name.equals("quizEntries")) {
+            if (name.equals("quizdata")) {
                 quizdata.add(readQuiz(parser));
             } else {
                 skipTag(parser);
@@ -63,7 +63,7 @@ public class QuizXmlParser extends GeneralXmlParser {
     //gibt eine einzelne Quizfrage zurück,
     //deren Daten in List<QuizEntry> readFeed(..) zu einer Liste aus Quizeinträgen gemacht werden.
     private QuizEntry readQuiz(XmlPullParser parser) throws XmlPullParserException, IOException {
-        parser.require(XmlPullParser.START_TAG, ns, "quizEntries");
+        parser.require(XmlPullParser.START_TAG, ns, "quizdata");
         String question = null;
         String rightAns = null;
         String wrAns1 = null;
@@ -79,12 +79,12 @@ public class QuizXmlParser extends GeneralXmlParser {
                 question = readQuestion(parser);
             } else if (name.equals("rightAns")) {
                 rightAns = readRightAns(parser);
-            } else if (name.equals("wrAns1")) {
-                wrAns1 = readWrAns1(parser);
-            } else if (name.equals("wrAns2")) {
-                wrAns2 = readWrAns2(parser);
-            } else if (name.equals("wrAns3")) {
-                wrAns3 = readWrAns3(parser);
+            } else if (name.equals("answers")) {
+                wrAns1 = readAnswers(parser);
+            } else if (name.equals("answers")) {
+                wrAns2 = readAnswers(parser);
+            } else if (name.equals("answers")) {
+                wrAns3 = readAnswers(parser);
             } else {
                 skipTag(parser);
             }
@@ -110,11 +110,11 @@ public class QuizXmlParser extends GeneralXmlParser {
     }
 
     //liest die erste falsche Antwort
-    private String readWrAns1(XmlPullParser parser) throws IOException, XmlPullParserException {
-        parser.require(XmlPullParser.START_TAG, ns, "wrAns1");
-        String wrAns1 = readText(parser);
-        parser.require(XmlPullParser.END_TAG, ns, "wrAns1");
-        return wrAns1;
+    private String readAnswers(XmlPullParser parser) throws IOException, XmlPullParserException {
+        parser.require(XmlPullParser.START_TAG, ns, "answers");
+        String answers = readText(parser);
+        parser.require(XmlPullParser.END_TAG, ns, "answers");
+        return answers;
     }
 
     //liest die zweite falsche Antwort
