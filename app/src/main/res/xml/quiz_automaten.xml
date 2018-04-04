@@ -9,7 +9,7 @@
         <RightAnswer tag="rightAnswer">
             richtige Antwort zu Frage 1
         </RightAnswer>
-        <WrAns1>
+        <WrAns1 tag="answers">
             Falsche Antwort 1 zu Frage 1
         </WrAns1>
         <WrAns2>

@@ -1,5 +1,6 @@
 package com.example.florian.projekt;
 
+import android.content.Context;
 import android.util.Log;
 import android.util.Xml;
 
@@ -23,13 +24,16 @@ import javax.xml.parsers.DocumentBuilderFactory;
 public class QuizXmlParser extends GeneralXmlParser {
 
 
-    public static List<QuizXmlParser.QuizEntry> getFileInput(String xmlName){
+    public static List<QuizXmlParser.QuizEntry> getQuiz(String xmlName, Context context){
         List<QuizEntry> quizdata = new ArrayList<QuizEntry>();
         try {
-            InputStream is;
+            FileInputStream fis = context.openFileInput(xmlName);
+            //InputStreamReader isr = new InputStreamReader(fis);
+            quizdata = QuizXmlParser.parse(fis);
+            /*FileInputStream is;
             //is = openFileInput(name);
             is = new FileInputStream(xmlName);
-            quizdata = QuizXmlParser.parse(is);
+            quizdata = QuizXmlParser.parse(is);*/
         }
         catch(Exception e){
             Log.e("InputStream", e.getMessage());
@@ -111,14 +115,14 @@ public class QuizXmlParser extends GeneralXmlParser {
             String name = parser.getName();
             if (name.equals("question")) {
                 question = readQuestion(parser);
-            } else if (name.equals("rightAns")) {
+            } else if (name.equals("RightAnswer")) {
                 rightAns = readRightAns(parser);
-            } else if (name.equals("answers")) {
-                wrAns1 = readAnswers(parser);
-            } else if (name.equals("answers")) {
-                wrAns2 = readAnswers(parser);
-            } else if (name.equals("answers")) {
-                wrAns3 = readAnswers(parser);
+            } else if (name.equals("WrAns1")) {
+                wrAns1 = readWrAns1(parser);
+            } else if (name.equals("WrAns2")) {
+                wrAns2 = readWrAns2(parser);
+            } else if (name.equals("WrAns3")) {
+                wrAns3 = readWrAns3(parser);
             } else {
                 skipTag(parser);
             }
@@ -137,15 +141,15 @@ public class QuizXmlParser extends GeneralXmlParser {
 
     //liest die richtige Antwort
     private static String readRightAns(XmlPullParser parser) throws IOException, XmlPullParserException {
-        parser.require(XmlPullParser.START_TAG, ns, "rightAns");
+        parser.require(XmlPullParser.START_TAG, ns, "RightAnswer");
         String rightAns = readText(parser);
-        parser.require(XmlPullParser.END_TAG, ns, "rightAns");
+        parser.require(XmlPullParser.END_TAG, ns, "RightAnswer");
         return rightAns;
     }
 
     //liest falsche Antworten
     private static String readAnswers(XmlPullParser parser) throws IOException, XmlPullParserException {
-        parser.require(XmlPullParser.START_TAG, ns, "answers");
+        parser.require(XmlPullParser.START_TAG, ns,"answers");
         String answers = readText(parser);
         parser.require(XmlPullParser.END_TAG, ns, "answers");
         return answers;
@@ -158,11 +162,25 @@ public class QuizXmlParser extends GeneralXmlParser {
         return quizName;
     }
 
-    //liest die dritte falsche Antwort
-    private String readWrAns3(XmlPullParser parser) throws IOException, XmlPullParserException {
-        parser.require(XmlPullParser.START_TAG, ns, "wrAns3");
+    private static String readWrAns1(XmlPullParser parser) throws IOException, XmlPullParserException {
+        parser.require(XmlPullParser.START_TAG, ns, "WrAns1");
         String wrAns3 = readText(parser);
-        parser.require(XmlPullParser.END_TAG, ns, "wrAns3");
+        parser.require(XmlPullParser.END_TAG, ns, "WrAns1");
+        return wrAns3;
+    }
+
+    private static String readWrAns2(XmlPullParser parser) throws IOException, XmlPullParserException {
+        parser.require(XmlPullParser.START_TAG, ns, "WrAns2");
+        String wrAns3 = readText(parser);
+        parser.require(XmlPullParser.END_TAG, ns, "WrAns2");
+        return wrAns3;
+    }
+
+    //liest die dritte falsche Antwort
+    private static String readWrAns3(XmlPullParser parser) throws IOException, XmlPullParserException {
+        parser.require(XmlPullParser.START_TAG, ns, "WrAns3");
+        String wrAns3 = readText(parser);
+        parser.require(XmlPullParser.END_TAG, ns, "WrAns3");
         return wrAns3;
     }
     /*public static  List<QuizEntry> getexample() {
