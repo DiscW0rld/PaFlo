@@ -41,11 +41,11 @@ public class QuizXmlParser extends GeneralXmlParser {
 
     public static class QuizEntry {
         String question;
-        private String rightAns;
-        private String wrAns1;
-        private String wrAns2;
-        private String wrAns3;
-        private QuizEntry(String question, String rightAns, String wrAns1, String wrAns2, String wrAns3) {
+        String rightAns;
+        String wrAns1;
+        String wrAns2;
+        String wrAns3;
+        QuizEntry(String question, String rightAns, String wrAns1, String wrAns2, String wrAns3) {
             this.question = question;
             this.rightAns = rightAns;
             this.wrAns1 = wrAns1;
@@ -158,6 +158,26 @@ public class QuizXmlParser extends GeneralXmlParser {
         return quizName;
     }
 
+    //liest die dritte falsche Antwort
+    private String readWrAns3(XmlPullParser parser) throws IOException, XmlPullParserException {
+        parser.require(XmlPullParser.START_TAG, ns, "wrAns3");
+        String wrAns3 = readText(parser);
+        parser.require(XmlPullParser.END_TAG, ns, "wrAns3");
+        return wrAns3;
+    }
+    /*public static  List<QuizEntry> getexample() {
+        List<QuizEntry> Beispiel = new ArrayList<QuizEntry>();
 
+        QuizEntry Frage1 = ("A", "B", "C", "D", "e");
+        QuizEntry Frage2 = new QuizEntry("Hallo", "A", "B", "C", "D");
+        QuizEntry Frage3 = new QuizEntry("Hallo", "A", "B", "C", "D");
+        QuizEntry Frage4 = new QuizEntry("Hallo", "A", "B", "C", "D");
+        QuizEntry Frage5 = new QuizEntry("Hallo", "A", "B", "C", "D");
+
+        Beispiel.add(Frage1);
+
+        return Beispiel;
+    }
+    */
 }
 

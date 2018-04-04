@@ -25,7 +25,7 @@
         <activity android:name=".QuizAuswahl" />
         <activity android:name=".AddNewQuiz"/>
         <activity android:name=".Quiz" />
-
+        <activity android:name=".QuizPopUp"/>
         <activity android:name=".Definition" />
         <activity android:name=".Definitionsabfrage" />
     </application>
