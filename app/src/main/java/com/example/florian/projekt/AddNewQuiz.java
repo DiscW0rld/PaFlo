@@ -3,8 +3,10 @@ package com.example.florian.projekt;
 
 import android.app.ProgressDialog;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -16,7 +18,11 @@ import android.widget.TextView;
 //  das Parsen, Downloaden und Speichern,
 public class AddNewQuiz extends DownloadAndSaveXml{
 
-    TextView fragestellung;
+    public AddNewQuiz(){
+
+        xmlURL = this.xmlURL;
+    }
+    TextView downloadtext;
     private Button button_a, button_b, button_c, button_d;
     private ProgressDialog pDialog;
     private String filename = "";
@@ -29,68 +35,47 @@ public class AddNewQuiz extends DownloadAndSaveXml{
     }
     public void setFileName(String newName) { filename = newName; }
 
+    public boolean download(AsyncStuff bla){
+        // Execute DownloadXML AsyncTask
+        //setURL();
+        try {
+            new DownloadXML().execute(bla);
+        } catch (Exception e){
+            Log.w("download", "Download muss fehlgeschlagen haben");
+            return false;
+        }
+        //downloadtext.setText("erfolgreich heruntergeladen!");
+        /*try {
+            wait(3000);
+        } catch (InterruptedException e) {
+            Log.w("wait", "hat nicht geklappt");
+            e.printStackTrace();
+        }*/
+        return true;
+    }
     //erstellt das Fenster
-    @Override
+    /*@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quiz);
-        fragestellung = (TextView) findViewById(R.id.frage);
+        //setContentView(R.layout.activity_appziel);
+        //downloadtext.setText("Download läuft");
+        //downloadtext = (TextView) findViewById(R.id.AppInfos);
+
         // Execute DownloadXML AsyncTask
         //setURL();
         new DownloadXML().execute(xmlURL);
 
-
-    }
-
-    /*private class DownloadXML extends AsyncTask<String, Void, Void>{
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            // Create a progressbar
-            pDialog = new ProgressDialog(AddNewQuiz.this);
-            // Set progressbar title
-            pDialog.setTitle("Download");
-            // Set progressbar message
-            pDialog.setMessage("Loading...");
-            pDialog.setIndeterminate(false);
-            // Show progressbar
-            pDialog.show();
-        }
-
-        @Override
-        protected Void doInBackground(String... xmlURL) {
-
-            try {
-                URL url = new URL(xmlURL[0]);
-                DocumentBuilderFactory dbf = DocumentBuilderFactory
-                        .newInstance();
-                DocumentBuilder db = dbf.newDocumentBuilder();
-                // Download the XML file
-                Document doc = db.parse(new InputSource(url.openStream()));
-                doc.getDocumentElement().normalize();
-
-                setFileName(doc.getElementById("explicit_filename").toString());
-                saveXml(getApplicationContext(), doc, filename);
-
-            } catch (Exception e) {
-                Log.e("Error", e.getMessage());
-                e.printStackTrace();
-            }
-            return null;
-        }
-    }
-    public void saveXml(Context context, Document doc, String xmlName) {
-        FileOutputStream foStream;
+        //downloadtext.setText("erfolgreich heruntergeladen!");
         try {
-            foStream = context.openFileOutput(xmlName, Context.MODE_PRIVATE);
-            //das eigentliche Speichern....?
-            foStream.close();
-        } catch (Exception e) {
-            Log.d("saveImage", "Exception 2, Something went wrong!");
+            wait(3000);
+        } catch (InterruptedException e) {
+            Log.w("wait", "hat nicht geklappt");
             e.printStackTrace();
         }
-    }
-*/
 
+        //Intent intent = new Intent(AddNewQuiz.this, QuizAuswahl.class);
+        //startActivity(intent);
+
+
+    }*/
 }

@@ -1,5 +1,6 @@
 package com.example.florian.projekt;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -28,7 +29,17 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 public class DownloadAndSaveXml extends AppCompatActivity{
 
+    public static class AsyncStuff{
+        String url;
+        Context cont;
+        public AsyncStuff(String url, Context cont){
+            this.url = url;
+            this.cont = cont;
+        }
+
+    }
         private String filename = "m";
+        ProgressDialog pDialog;
 
         //private static String xmlURL = "https://raw.githubusercontent.com/DiscW0rld/PaFlo-quiz/master/quiz_automaten.xml";
 
@@ -37,12 +48,13 @@ public class DownloadAndSaveXml extends AppCompatActivity{
                 filename = newName; }
 
 
-        public class DownloadXML extends AsyncTask<String, Void, Void>{
+        public class DownloadXML extends AsyncTask<AsyncStuff, Context, Void>{
 
                 private String xmlURL = "b";
                 @Override
                 protected void onPreExecute() {
-                       /* super.onPreExecute();
+
+                      /* super.onPreExecute();
                         // Create a progressbar
                         pDialog = new ProgressDialog(getApplicationContext());
                         // Set progressbar title
@@ -55,15 +67,21 @@ public class DownloadAndSaveXml extends AppCompatActivity{
                 }
 
                 @Override
-                protected Void doInBackground(String... xmlURL) {
+                protected Void doInBackground(AsyncStuff... xmlURL) {
 
                         HttpURLConnection urlConnection = null;
                         String result = "";
+                        //FileOutputStream foStream;
 
+
+
+                        //Context context = QuizAuswahl.getApplicationContext();
                         try {
-                                URL url = new URL(xmlURL[0]);
+                                String test = xmlURL[0].url;
+                                URL url = new URL(xmlURL[0].url);
+                                Context cont = xmlURL[0].cont;
 
-                                urlConnection = (HttpsURLConnection) url.openConnection();
+                                urlConnection = (HttpURLConnection) url.openConnection();
 
                                 int code = urlConnection.getResponseCode();
 
@@ -89,9 +107,16 @@ public class DownloadAndSaveXml extends AppCompatActivity{
                                 // das Element finden, das die ID explicit_filename hat,
                                 // dieses den String zwischen Start- und Endtag konvertieren
                                 filename = doc.getElementById("explicit_filename").getTextContent();
-                                saveXml(result, filename);
-                                String test = result;
-                                Log.w("Inhalt", test);
+                                FileOutputStream foStream = cont.openFileOutput(filename, MODE_PRIVATE);
+                                if (foStream == null){
+                                        Log.w("foStream", "ist null");
+                                }
+
+                                //das eigentliche Speichern....
+                                foStream.write(result.getBytes());
+
+                                foStream.close();
+
 
                         } catch (Exception e) {
                                 Log.e("Laden Error", e.getMessage());
@@ -105,17 +130,17 @@ public class DownloadAndSaveXml extends AppCompatActivity{
         }
 
 
-        public void saveXml(String dokument, String xmlName) {
+        public void saveXml(Context context, String dokument, String xmlName) {
                 FileOutputStream foStream = null;
+                filename = "data";
+                File file = new File(context.getFilesDir(), filename);
 
                 try {
 
                         //was macht context.??
-                        foStream = getApplicationContext().openFileOutput(xmlName, Context.MODE_PRIVATE);
+                        foStream = openFileOutput(filename, Context.MODE_PRIVATE);
                         //File file = new File(getFilesDir() +  "/data/", xmlName);
 
-                        //hier muss noch was passieren... toString() macht Blödsinn draus.
-                        //String dokument = doc.toString();
                         Log.w("Dokumentinhalt", dokument);
                         foStream.write(dokument.getBytes());
                         //das eigentliche Speichern....?
