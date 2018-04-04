@@ -20,7 +20,7 @@
         android:id="@+id/frage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="40dp"
+        android:layout_margin="10dp"
         android:text="Hier steht eine Frage" />
 
 
@@ -68,19 +68,37 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="40dp"
+        android:layout_margin="20dp"
         android:text="Nächste Frage" />
 
-    <TextView
-        android:id="@+id/richtigefragen"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="richtige beantwortete Fragen: 0"  />
 
     <TextView
         android:id="@+id/gesamtfragen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Anzahl Fragen: 0" />
+        android:text="" />
+
+
+    <TextView
+        android:id="@+id/richtigefragen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""  />
+
+    <Button
+        android:id="@+id/quizauswahl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="5dp"
+        android:text="zur Quizauswahl" />
+
+    <Button
+        android:id="@+id/hauptmenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="5dp"
+        android:text="Zum Hauptmenü" />
 
 </LinearLayout>

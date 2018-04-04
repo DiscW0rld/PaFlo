@@ -13,6 +13,8 @@ import java.util.List;
 
 public class QuizXmlParser extends GeneralXmlParser {
 
+
+
     private String readQuizName(XmlPullParser parser) throws IOException, XmlPullParserException{
         parser.require(XmlPullParser.START_TAG, ns, "quizname");
         String quizName = readText(parser);
@@ -20,7 +22,7 @@ public class QuizXmlParser extends GeneralXmlParser {
         return quizName;
     }
 
-    public static class QuizEntry {
+    public class QuizEntry {
         private String question;
         private String rightAns;
         private String wrAns1;
@@ -33,6 +35,8 @@ public class QuizXmlParser extends GeneralXmlParser {
             this.wrAns2 = wrAns2;
             this.wrAns3 = wrAns3;
         }
+
+
     }
 
 
@@ -128,6 +132,19 @@ public class QuizXmlParser extends GeneralXmlParser {
         parser.require(XmlPullParser.END_TAG, ns, "wrAns3");
         return wrAns3;
     }
+    /*public static  List<QuizEntry> getexample() {
+        List<QuizEntry> Beispiel = new ArrayList<QuizEntry>();
 
+        QuizEntry Frage1 = ("A", "B", "C", "D", "e");
+        QuizEntry Frage2 = new QuizEntry("Hallo", "A", "B", "C", "D");
+        QuizEntry Frage3 = new QuizEntry("Hallo", "A", "B", "C", "D");
+        QuizEntry Frage4 = new QuizEntry("Hallo", "A", "B", "C", "D");
+        QuizEntry Frage5 = new QuizEntry("Hallo", "A", "B", "C", "D");
+
+        Beispiel.add(Frage1);
+
+        return Beispiel;
+    }
+    */
 }
 
