@@ -7,14 +7,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import java.io.FileInputStream;
-
 import java.sql.Array;
 import java.util.*;
 
 import static com.example.florian.projekt.QuizAuswahl.getLink;
-import static com.example.florian.projekt.QuizXmlParser.getFileInput;
+//import static com.example.florian.projekt.QuizXmlParser.getFileInput;
 
 
 //in dieser Klasse wird das Quiz durchgeführt;
@@ -45,10 +43,6 @@ public class Quiz extends AppCompatActivity {
         return thisQuiz;
     }
 
-
-    List<QuizXmlParser.QuizEntry> testQuiz = QuizXmlParser.getExample();
-
-
     private String[] shuffleArray(String[] antwortfragen){
         for (int i = antwortfragen.length -1; i>-1; --i) {
            int j = (int) (i * Math.random());
@@ -76,24 +70,25 @@ public class Quiz extends AppCompatActivity {
 
     }
 
-    //String[] fragen = {"Ein Alphabet ist ...", "Frage 2", "Frage 3"};
-    //String[] antworten = {"eine endliche Menge Buchstaben", "eine unendliche Menge Buchstaben", "eine endliche Menge von Wörtern", "eine endliche Menge von Wörtern und Buchstaben"};
-    //String[] richtigeAntwort = {"eine endliche Menge Buchstaben"};
-    //String[] antwortfragen = {antworten[0], antworten[1] , antworten[2], antworten[3]};
 
-    String[] fragen = new String[testQuiz.size()];
-    String[] antworten = new String[4* testQuiz.size()];
-    String[] richtigeAntworten = new String[testQuiz.size()];
-    String[] richtigeAntwort = new String [1];
-    String[] antwortfragen = new String[4];
+    List<QuizXmlParser.QuizEntry> testQuiz,thisQuiz;
+    String[] fragen, antworten, richtigeAntworten,richtigeAntwort,antwortfragen;
+    String link;
     TextView frage, richtigefragen, gesamtfragen;
     Button button1,button2,button3,button4,naechsteFrage, quizauswahl, hauptmenu;
     int richtig,gesamt,fra;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        String link = QuizAuswahl.getLink();
-        List<QuizXmlParser.QuizEntry> thisQuiz = QuizXmlParser.getQuiz(link, getApplicationContext());
+        link = QuizAuswahl.getLink();
+        //testQuiz = QuizXmlParser.getExample();
+        testQuiz = QuizXmlParser.getQuiz(link, getApplicationContext());
+        fragen = new String[testQuiz.size()];
+        antworten = new String[4* testQuiz.size()];
+        richtigeAntworten = new String[testQuiz.size()];
+        richtigeAntwort = new String [1];
+        antwortfragen = new String[4];
+
 
         setContentView(R.layout.activity_quiz);
         for (int i=0; i<testQuiz.size(); ++i){
