@@ -21,7 +21,7 @@ public class DefinitionXmlParser extends GeneralXmlParser{
 
     List<DefinitionEntry> defTitelData;
 
-    public List<DefinitionEntry> parse(InputStream in) throws XmlPullParserException, IOException {
+    public List<DefinitionEntry> parseDefinition(InputStream in) throws XmlPullParserException, IOException {
         try {
             XmlPullParser parser = Xml.newPullParser();
             parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);

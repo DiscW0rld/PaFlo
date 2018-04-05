@@ -23,7 +23,9 @@
         <activity android:name=".Bezeichnungen" />
         <activity android:name=".AppInformationen" />
         <activity android:name=".QuizAuswahl" />
-        <activity android:name=".AddNewQuiz"/>
+        <activity android:name=".AddNewXml"/>
+        <activity android:name=".DefinitionsAuswahl"/>
+        <activity android:name=".DownloadActivity"/>
         <activity android:name=".DownloadAndSaveXml"/>
         <activity android:name=".Quiz" />
         <activity android:name=".QuizPopUp"/>

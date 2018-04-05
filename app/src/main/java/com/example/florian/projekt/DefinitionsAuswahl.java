@@ -3,7 +3,6 @@ package com.example.florian.projekt;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -11,17 +10,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
-import java.util.List;
+public class DefinitionsAuswahl extends AppCompatActivity{
 
-public class QuizAuswahl extends AppCompatActivity{
-
-    EditText quizlink;
-    Spinner quizlinkspinner;
+    EditText deflink;
+    Spinner deflinkspinner;
     public static String linkname;
-    Button startQuiz;
-    Spinner downloaded_quizzes;
+    Button startDefinition;
+    Spinner downloaded_definitions;
     Button download;
 
 
@@ -37,23 +32,23 @@ public class QuizAuswahl extends AppCompatActivity{
         setContentView(R.layout.activity_choose_quiz);
 
         download = (Button) findViewById(R.id.download_button);
-        startQuiz = (Button) findViewById(R.id.start_datei);
-        quizlinkspinner = (Spinner) findViewById(R.id.new_file);
-        quizlink = (EditText) findViewById(R.id.neue_datei);
+        startDefinition = (Button) findViewById(R.id.start_datei);
+        deflinkspinner = (Spinner) findViewById(R.id.new_file);
+        deflink = (EditText) findViewById(R.id.neue_datei);
         //Log.w("FileListe", files[0]);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.quizlinks, android.R.layout.simple_spinner_item);
-        quizlinkspinner.setAdapter(adapter);
+        deflinkspinner.setAdapter(adapter);
 
         //bei Auswahl eines Quizlinks wird im EditText dieser Link angezeigt;
         //dann soll man auf "Download!" klicken und der Text im EditText wird dann als Link verwendet,
         //der dann heruntergeladen und gespeichert wird.
-        quizlinkspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        deflinkspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                quizlink.setText(quizlinkspinner.getSelectedItem().toString());
+                deflink.setText(deflinkspinner.getSelectedItem().toString());
             }
 
             @Override
@@ -77,7 +72,7 @@ public class QuizAuswahl extends AppCompatActivity{
                     if (successful){
                         download.setText("erfolgreich!");
                     } else download.setText("das hat nicht geklappt... :(");*/
-                    AddNewXml.downloadXml(quizlinkspinner.getSelectedItem().toString(), getApplicationContext());
+                    AddNewXml.downloadXml(deflinkspinner.getSelectedItem().toString(), getApplicationContext());
                     download.setText("Fertig! Nächster Download?");
                 }
             }
@@ -88,16 +83,16 @@ public class QuizAuswahl extends AppCompatActivity{
         //Es wird der Name der Datei angezeigt, die man öffnen möchte.
         //Mit Klick auf "Start Quiz!" wird diese Datei
         //im Quizordner herausgesucht, geparst und verwendet.
-        downloaded_quizzes = (Spinner) findViewById(R.id.offline_dateien);
+        downloaded_definitions = (Spinner) findViewById(R.id.offline_dateien);
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
                 R.array.heruntergeladen, android.R.layout.simple_spinner_item);
-        downloaded_quizzes.setAdapter(adapter2);
+        downloaded_definitions.setAdapter(adapter2);
 
-        downloaded_quizzes.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        downloaded_definitions.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                startQuiz.setText(downloaded_quizzes.getSelectedItem().toString() + " starten!");
+                startDefinition.setText(downloaded_definitions.getSelectedItem().toString() + " starten!");
             }
 
             @Override
@@ -106,7 +101,7 @@ public class QuizAuswahl extends AppCompatActivity{
 
 
         });
-        startQuiz.setOnClickListener(new View.OnClickListener() {
+        startDefinition.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -114,12 +109,10 @@ public class QuizAuswahl extends AppCompatActivity{
 
                 if(ce == R.id.start_datei){
 
-                    linkname = downloaded_quizzes.getSelectedItem().toString();
-                    startQuiz.setText("Quiz lädt");
-                    /*Quiz.SingleQuiz startedQuiz = new Quiz.SingleQuiz(linkname);
-                    List<QuizXmlParser.QuizEntry> getQuiz = QuizXmlParser.getQuiz(linkname);*/
+                    linkname = downloaded_definitions.getSelectedItem().toString();
+                    startDefinition.setText("Definitionen laden");
 
-                    Intent intent = new Intent(QuizAuswahl.this, Quiz.class);
+                    Intent intent = new Intent(DefinitionsAuswahl.this, Definition.class);
                     startActivity(intent);
                 }
             }

@@ -1,10 +1,17 @@
 package com.example.florian.projekt;
 
+import android.content.Context;
+import android.util.Log;
+import android.util.Xml;
+
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
+
+import java.io.FileInputStream;
 import java.io.IOException;
-
-
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -14,6 +21,79 @@ import java.io.IOException;
  */
 public class GeneralXmlParser {
     static final String ns = null;
+
+    public class Index{
+        String url;
+        Index(String url){
+            this.url = url;
+        }
+    }
+
+    //holt einen (bereits gespeicherten) Index mit dem Dateinamen "name" ab.
+    public static List<Index> getIndex(String name, Context context){
+        List<Index> index = new ArrayList<>();
+        try {
+            FileInputStream fis = context.openFileInput(name);
+            //InputStreamReader isr = new InputStreamReader(fis);
+            index = GeneralXmlParser.parseIndex(fis);
+            /*FileInputStream is;
+            //is = openFileInput(name);
+            is = new FileInputStream(xmlName);
+            quizdata = QuizXmlParser.parse(is);*/
+        }
+        catch(Exception e){
+            Log.e("InputStream", e.getMessage());
+            e.printStackTrace();
+        }
+        return index;
+    }
+
+
+    //von getIndex aufgerufen
+    // parst eine gespeicherte Indexdatei (InputStream wird übergeben)
+    public static List<Index> parseIndex(InputStream in) throws XmlPullParserException, IOException {
+        try {
+            XmlPullParser parser = Xml.newPullParser();
+            parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
+            parser.setInput(in, null);
+            parser.nextTag();
+            return readIndex(parser);
+        } finally {
+            in.close();
+        }
+    }
+
+    //von parseIndex aufgerufen
+    //liest eine Indexdatei aus
+    private static List<Index> readIndex(XmlPullParser parser) throws XmlPullParserException, IOException {
+        List<Index> index = new ArrayList<>();
+        Index entry = null;
+
+        parser.require(XmlPullParser.START_TAG, ns, "index");
+        while (parser.next() != XmlPullParser.END_TAG) {
+            if (parser.getEventType() != XmlPullParser.START_TAG) {
+                continue;
+            }
+            String name = parser.getName();
+            // Starts by looking for the entry tag
+            if (name.equals("entry")) {
+                entry.url = readEntry(parser);
+                index.add(entry);
+            } else {
+                skipTag(parser);
+            }
+        }
+        return index;
+    }
+
+    //von readIndex aufgerufen
+    //liest einen einzelnen Indexeintrag aus
+    private static String readEntry(XmlPullParser parser) throws IOException, XmlPullParserException {
+        parser.require(XmlPullParser.START_TAG, ns, "entry");
+        String entry = readText(parser);
+        parser.require(XmlPullParser.END_TAG, ns, "entry");
+        return entry;
+    }
 
     /*public static void saveXml(Context context, Document doc, String xmlName) {
         FileOutputStream foStream;

@@ -14,11 +14,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        final Button download_stuff = (Button) findViewById(R.id.neuer_content);
         final Button definition = (Button) findViewById(R.id.definition);
         final Button abfrage = (Button) findViewById(R.id.abfrage);
         final Button zurapp = (Button) findViewById(R.id.zurapp);
         final Button quiz = (Button) findViewById(R.id.quiz);
         final Button beenden = (Button) findViewById(R.id.beenden);
+
+        download_stuff.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int ce = v.getId();
+
+                if(ce == R.id.neuer_content){
+
+                    Intent intent = new Intent(MainActivity.this, DownloadActivity.class);
+                    startActivity(intent);
+                }
+            }
+
+        });
 
         definition.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if(ce == R.id.definition){
 
-                    Intent intent = new Intent(MainActivity.this, Definition.class);
+                    Intent intent = new Intent(MainActivity.this, DefinitionsAuswahl.class);
                     startActivity(intent);
                 }
             }

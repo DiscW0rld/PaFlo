@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="16dp"
+    android:paddingTop="16dp"
+    android:paddingLeft="38dp"
+    android:paddingRight="38dp"
+    tools:context="com.example.florian.projekt.MainActivity">
+
+
+    <Button
+        android:id="@+id/download_definition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="neue Definitionenliste downloaden" />
+
+    <EditText
+        android:id="@+id/neue_def_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:enabled="false" />
+
+    <Spinner
+        android:id="@+id/new_def_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:enabled="false"/>
+
+    <Button
+        android:id="@+id/download_def_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Download!"
+        android:enabled="false"/>
+
+    <Button
+        android:id="@+id/download_quiz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="neues Quiz downloaden" />
+
+    <EditText
+        android:id="@+id/neues_quiz_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:enabled="false"/>
+
+    <Spinner
+        android:id="@+id/new_quiz_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:enabled="false"/>
+
+    <Button
+        android:id="@+id/download_quiz_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Download!"
+        android:enabled="false"/>
+
+</LinearLayout>

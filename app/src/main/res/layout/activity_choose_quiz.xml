@@ -11,16 +11,14 @@
 
 
     <EditText
-        android:id="@+id/neues_quiz"
+        android:id="@+id/neue_datei"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Link zu einer Quiz-.xml eingeben" />
+        android:layout_height="wrap_content" />
 
     <Spinner
-        android:id="@+id/new_quiz"
+        android:id="@+id/new_file"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Neues Quiz herunterladen" />
+        android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/download_button"
@@ -29,24 +27,22 @@
         android:text="Download!" />
 
     <TextView
-        android:id="@+id/heruntergeladene"
+        android:id="@+id/heruntergeladen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Heruntergeladene Quizzes" />
+        android:inputType="textPersonName"/>
 
     <Spinner
-        android:id="@+id/offline_quizzes"
+        android:id="@+id/offline_dateien"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Heruntergeladene Quizzes"/>
+        android:layout_height="wrap_content"/>
 
     <Button
-        android:id="@+id/start_quiz"
+        android:id="@+id/start_datei"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Start Quiz!" />
+        android:text="Start!" />
 
 
 </LinearLayout>
