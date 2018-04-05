@@ -19,6 +19,6 @@
 
     <string-array name="heruntergeladen">
         <item>Quiz_Automaten_und_Berechenbarkeit.xml</item>
-        <item>quiz_schulpaedagogik.xml</item>
+        <item>Quiz_Schulpaedagogik.xml</item>
     </string-array>
 </resources>
