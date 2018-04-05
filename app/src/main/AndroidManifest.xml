@@ -28,6 +28,7 @@
         <activity android:name=".QuizPopUp"/>
         <activity android:name=".Definition" />
         <activity android:name=".Definitionsabfrage" />
+
     </application>
 
 </manifest>

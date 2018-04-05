@@ -35,24 +35,41 @@ public class Definition extends AppCompatActivity{
         spinner = (Spinner) findViewById(R.id.defAuswahl);
         besch = (TextView) findViewById(R.id.defText);
         defTitel = (TextView) findViewById(R.id.defName);
-        List<DefinitionXmlParser.DefinitionEntry> defTitelData = new ArrayList<>();
+        List<DefinitionXmlParser.DefinitionEntry> TestDef = DefinitionXmlParser.getExampleDef();
+        final String[] definitionen = new String[TestDef.size()];
+        final String[] beschreibungen = new String[TestDef.size()];
+        List<String> spinnerarray = new ArrayList<String>();
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.definitionen, android.R.layout.simple_spinner_item);
+        for (int i=0; i<TestDef.size(); ++i){
+            definitionen[i] = TestDef.get(i).defTitel;
+        }
+
+        for (int i=0; i<TestDef.size(); ++i){
+            beschreibungen[i] = TestDef.get(i).erklaerung;
+        }
+
+        for (int i=0; i<TestDef.size(); ++i){
+            spinnerarray.add(TestDef.get(i).defTitel);
+        }
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, spinnerarray);
+
+
+
         spinner.setAdapter(adapter);
 
             //defTitelData = definitionXmlParser.parse(parser);
 
         Resources res = getResources();
-        final String[] defNamen = res.getStringArray(R.array.definitionen);
-        final String[] beschreibung = res.getStringArray(R.array.erklaerungen);
+
 
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
            @Override
            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-               defTitel.setText(defNamen[position]);
-               besch.setText(beschreibung[position]);
+               defTitel.setText(definitionen[position]);
+               besch.setText(beschreibungen[position]);
             }
 
            @Override

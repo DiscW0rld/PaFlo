@@ -35,12 +35,33 @@ public class Quiz extends AppCompatActivity {
         return antwortfragen;
     }
 
-    String[] fragen = {"Ein Alphabet ist ...", "Frage 2", "Frage 3"};
-    String[] antworten = {"eine endliche Menge Buchstaben", "eine unendliche Menge Buchstaben", "eine endliche Menge von Wörtern", "eine endliche Menge von Wörtern und Buchstaben"};
-    String[] richtigeAntwort = {"eine endliche Menge Buchstaben"};
-    String[] antwortfragen = {antworten[0], antworten[1] , antworten[2], antworten[3]};
+    void belegen(){
 
-    //String[] fragen = new String[testQuiz.size()];
+        final int fra = (int) (testQuiz.size() * Math.random());
+        frage.setText(fragen[fra]);
+        richtigeAntwort[0] = richtigeAntworten[fra];
+        antwortfragen[0] = antworten[4*fra];
+        antwortfragen[1] = antworten[4*fra+1];
+        antwortfragen[2] = antworten[4*fra+2];
+        antwortfragen[3] = antworten[4*fra+3];
+        antwortfragen = shuffleArray(antwortfragen);
+        button1.setText(antwortfragen[0]);
+        button2.setText(antwortfragen[1]);
+        button3.setText(antwortfragen[2]);
+        button4.setText(antwortfragen[3]);
+
+    }
+
+    //String[] fragen = {"Ein Alphabet ist ...", "Frage 2", "Frage 3"};
+    //String[] antworten = {"eine endliche Menge Buchstaben", "eine unendliche Menge Buchstaben", "eine endliche Menge von Wörtern", "eine endliche Menge von Wörtern und Buchstaben"};
+    //String[] richtigeAntwort = {"eine endliche Menge Buchstaben"};
+    //String[] antwortfragen = {antworten[0], antworten[1] , antworten[2], antworten[3]};
+
+    String[] fragen = new String[testQuiz.size()];
+    String[] antworten = new String[4* testQuiz.size()];
+    String[] richtigeAntworten = new String[testQuiz.size()];
+    String[] richtigeAntwort = new String [1];
+    String[] antwortfragen = new String[4];
     TextView frage, richtigefragen, gesamtfragen;
     Button button1,button2,button3,button4,naechsteFrage, quizauswahl, hauptmenu;
     int richtig,gesamt,fra;
@@ -48,32 +69,35 @@ public class Quiz extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
-
-
-        /*for (int i=0; i<testQuiz.size(); ++i){
+        for (int i=0; i<testQuiz.size(); ++i){
             fragen[i] = testQuiz.get(i).question;
-        }*/
+        }
+
+        for (int i=0; i<testQuiz.size(); ++i){
+            richtigeAntworten[i] = testQuiz.get(i).rightAns;
+        }
+
+        for (int i=0; i < testQuiz.size(); ++i){
+            antworten[4*i] = testQuiz.get(i).rightAns;
+            antworten[4*i+1] = testQuiz.get(i).wrAns1;
+            antworten[4*i+2] = testQuiz.get(i).wrAns2;
+            antworten[4*i+3] = testQuiz.get(i).wrAns3;
+
+
+        }
 
         richtig = 0;
         gesamt = 1;
-        fra = 0;
 
         richtigefragen = (TextView) findViewById(R.id.richtigefragen);
         richtigefragen.setText("richtige beantwortete Fragen: " + richtig);
         gesamtfragen = (TextView) findViewById(R.id.gesamtfragen);
         gesamtfragen.setText("Frage: " + gesamt + " von 3");
         frage = (TextView) findViewById(R.id.frage);
-        frage.setText(fragen[fra]);
-        antwortfragen = shuffleArray(antwortfragen);
-        //mischen();
         button1 = (Button) findViewById(R.id.antwort_a);
-        button1.setText(antwortfragen[0]);
         button2 = (Button) findViewById(R.id.antwort_b);
-        button2.setText(antwortfragen[1]);
         button3 = (Button) findViewById(R.id.antwort_c);
-        button3.setText(antwortfragen[2]);
         button4 = (Button) findViewById(R.id.antwort_d);
-        button4.setText(antwortfragen[3]);
         naechsteFrage = (Button) findViewById(R.id.naechsteFrage);
         naechsteFrage.setEnabled(false);
         quizauswahl = (Button) findViewById(R.id.quizauswahl);
@@ -82,6 +106,7 @@ public class Quiz extends AppCompatActivity {
         hauptmenu = (Button) findViewById(R.id.hauptmenu);
         hauptmenu.setEnabled(false);
         hauptmenu.setVisibility(View.INVISIBLE);
+        belegen();
         List <QuizXmlParser.QuizEntry> namengeben = new ArrayList<>();
         //namengeben = QuizXmlParser.getexample();
 
@@ -101,7 +126,7 @@ public class Quiz extends AppCompatActivity {
                     button2.setEnabled(false);
                     button3.setEnabled(false);
                     button4.setEnabled(false);
-                    if (fra != 2)
+                    if (gesamt != 3)
                     naechsteFrage.setEnabled(true);
                     else{
                         quizauswahl.setVisibility(View.VISIBLE);
@@ -134,7 +159,7 @@ public class Quiz extends AppCompatActivity {
                     button1.setEnabled(false);
                     button3.setEnabled(false);
                     button4.setEnabled(false);
-                    if (fra != 2)
+                    if (gesamt != 3)
                         naechsteFrage.setEnabled(true);
                     else{
                         quizauswahl.setVisibility(View.VISIBLE);
@@ -165,7 +190,7 @@ public class Quiz extends AppCompatActivity {
                             button1.setEnabled(false);
                             button2.setEnabled(false);
                             button4.setEnabled(false);
-                            if (fra != 2)
+                            if (gesamt != 3)
                                 naechsteFrage.setEnabled(true);
                             else{
                                 quizauswahl.setVisibility(View.VISIBLE);
@@ -197,7 +222,7 @@ public class Quiz extends AppCompatActivity {
                             button1.setEnabled(false);
                             button2.setEnabled(false);
                             button3.setEnabled(false);
-                            if (fra != 2)
+                            if (gesamt != 3)
                                 naechsteFrage.setEnabled(true);
                             else{
                                 quizauswahl.setVisibility(View.VISIBLE);
@@ -218,8 +243,7 @@ public class Quiz extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
 
-                            fra++;
-                            frage.setText(fragen[fra]);
+                            belegen();
                             naechsteFrage.setEnabled(false);
                             button1.setBackgroundColor(Color.DKGRAY);
                             button2.setBackgroundColor(Color.DKGRAY);
@@ -259,10 +283,12 @@ public class Quiz extends AppCompatActivity {
 
                     Intent intent = new Intent(Quiz.this, MainActivity.class);
                     startActivity(intent);
+
                 }
             }
 
         });
+
 
 
                 }

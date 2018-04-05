@@ -57,9 +57,16 @@ public class QuizXmlParser extends GeneralXmlParser {
 
     public static List<QuizEntry> getExample(){
         List<QuizEntry> quiz = new ArrayList<>();
-        QuizEntry Frage1 = new QuizEntry("A", "B", "C", "D", "E");
+        QuizEntry Frage1 = new QuizEntry("Ein Alphabet ist ...", "eine endliche Menge Buchstaben", "eine unendliche Menge Buchstaben", "eine endliche Menge von Wörtern", "eine endliche Menge von Wörtern und Buchstaben");
+        QuizEntry Frage2 = new QuizEntry("Frage 2", "richtige Antwort Frage 2", "1. falsche Antwort Frage 2", "2. falsche Antwort Frage 2", "3. falsche Antwort Frage 2");
+        QuizEntry Frage3 = new QuizEntry("Frage 3", "richtige Antwort Frage 3", "1. falsche Antwort Frage 3", "2. falsche Antwort Frage 3", "3. falsche Antwort Frage 3");
+        QuizEntry Frage4 = new QuizEntry("Frage 4", "richtige Antwort Frage 4", "1. falsche Antwort Frage 4", "2. falsche Antwort Frage 4", "3. falsche Antwort Frage 4");
+        QuizEntry Frage5 = new QuizEntry("Frage 5", "richtige Antwort Frage 5", "1. falsche Antwort Frage 5", "2. falsche Antwort Frage 5", "3. falsche Antwort Frage 5");
         quiz.add(Frage1);
-
+        quiz.add(Frage2);
+        quiz.add(Frage3);
+        quiz.add(Frage4);
+        quiz.add(Frage5);
         return quiz;
     }
     public static List<QuizEntry> parse(InputStream in) throws XmlPullParserException, IOException {
@@ -168,16 +175,16 @@ public class QuizXmlParser extends GeneralXmlParser {
     /*public static  List<QuizEntry> getexample() {
         List<QuizEntry> Beispiel = new ArrayList<QuizEntry>();
 
-        QuizEntry Frage1 = ("A", "B", "C", "D", "e");
-        QuizEntry Frage2 = new QuizEntry("Hallo", "A", "B", "C", "D");
+       // QuizEntry Frage1 = ("A", "B", "C", "D", "e");
+        QuizEntry Frage2 = new QuizEntry("Hallo", "ABC", "B", "C", "D");
         QuizEntry Frage3 = new QuizEntry("Hallo", "A", "B", "C", "D");
         QuizEntry Frage4 = new QuizEntry("Hallo", "A", "B", "C", "D");
         QuizEntry Frage5 = new QuizEntry("Hallo", "A", "B", "C", "D");
 
-        Beispiel.add(Frage1);
+        Beispiel.add(Frage2);
 
         return Beispiel;
     }
-    */
+*/
 }
 

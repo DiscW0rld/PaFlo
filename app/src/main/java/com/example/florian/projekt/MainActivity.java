@@ -10,15 +10,13 @@ public class MainActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         final Button definition = (Button) findViewById(R.id.definition);
         final Button abfrage = (Button) findViewById(R.id.abfrage);
         final Button zurapp = (Button) findViewById(R.id.zurapp);
         final Button quiz = (Button) findViewById(R.id.quiz);
-        final Button beenden = (Button) findViewById(R.id.beenden);
 
         definition.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if(ce == R.id.quiz){
 
+
                     Intent intent = new Intent(MainActivity.this, QuizAuswahl.class);
                     startActivity(intent);
                 }
@@ -80,14 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        beenden.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                System.exit(0);
-            }
-
-        });
 
     }
 }

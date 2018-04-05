@@ -104,8 +104,11 @@ public class QuizAuswahl extends AppCompatActivity{
 
                     linkname = downloaded_quizzes.getSelectedItem().toString();
                     //.getFileInput(downloaded_quizzes.getSelectedItem().toString());
+
                     Intent intent = new Intent(QuizAuswahl.this, Quiz.class);
                     startActivity(intent);
+
+
                 }
             }
 
