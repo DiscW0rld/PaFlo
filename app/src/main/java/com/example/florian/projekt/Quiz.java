@@ -3,12 +3,12 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
+import java.io.FileInputStream;
 
 import java.sql.Array;
 import java.util.*;
@@ -16,12 +16,36 @@ import java.util.*;
 import static com.example.florian.projekt.QuizAuswahl.getLink;
 import static com.example.florian.projekt.QuizXmlParser.getFileInput;
 
+
+//in dieser Klasse wird das Quiz durchgeführt;
+//dazu wird eine Quizdatei (filename) eingelesen,
+//an QuizXmlParser übergeben und
+//das geparste Quiz wird in eine verarbeitungsfreundliche Form gebracht.
 public class Quiz extends AppCompatActivity {
 
+    public static class SingleQuiz {
+        String filename;
+
+        public SingleQuiz(String filename) {
+            this.filename = filename;
+        }
+    }
+
+    public List<QuizXmlParser.QuizEntry> parseQuiz(SingleQuiz singleQuiz){
+        List<QuizXmlParser.QuizEntry> thisQuiz = null;
+        try{
+            FileInputStream fis = getApplicationContext().openFileInput("hello.txt");
+            //InputStreamReader isr = new InputStreamReader(fis);
+            thisQuiz = QuizXmlParser.parse(fis);
+        }
+        catch (Exception e){
+            Log.e("File not found", "right Filename?");
+        }
+
+        return thisQuiz;
+    }
 
 
-    String link = getLink();
-    List<QuizXmlParser.QuizEntry> thisQuiz = getFileInput(link);
     List<QuizXmlParser.QuizEntry> testQuiz = QuizXmlParser.getExample();
 
 
@@ -68,6 +92,9 @@ public class Quiz extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        String link = QuizAuswahl.getLink();
+        List<QuizXmlParser.QuizEntry> thisQuiz = QuizXmlParser.getQuiz(link, getApplicationContext());
+
         setContentView(R.layout.activity_quiz);
         for (int i=0; i<testQuiz.size(); ++i){
             fragen[i] = testQuiz.get(i).question;
@@ -88,7 +115,20 @@ public class Quiz extends AppCompatActivity {
 
         richtig = 0;
         gesamt = 1;
+        fra = 0;
 
+        /*String cookie = thisQuiz.get(0).question;
+        String cake = cookie;
+        cookie = thisQuiz.get(0).rightAns;
+        cake = cookie;
+        cookie = thisQuiz.get(0).wrAns1;
+        cake = cookie;
+        cookie = thisQuiz.get(0).wrAns2;
+        cake = cookie;
+        cookie = thisQuiz.get(0).wrAns3;
+        cake = cookie;
+        cookie = thisQuiz.get(1).question;
+        cake = cookie;*/
         richtigefragen = (TextView) findViewById(R.id.richtigefragen);
         richtigefragen.setText("richtige beantwortete Fragen: " + richtig);
         gesamtfragen = (TextView) findViewById(R.id.gesamtfragen);

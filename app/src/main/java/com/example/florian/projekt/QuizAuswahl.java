@@ -3,13 +3,17 @@ package com.example.florian.projekt;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
+
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.util.List;
 
 public class QuizAuswahl extends AppCompatActivity{
 
@@ -18,6 +22,8 @@ public class QuizAuswahl extends AppCompatActivity{
     public static String linkname;
     Button startQuiz;
     Spinner downloaded_quizzes;
+    Button download;
+
 
     public static String getLink(){
         return linkname;
@@ -25,7 +31,7 @@ public class QuizAuswahl extends AppCompatActivity{
 
     public void onCreate(Bundle savedInstanceState) {
 
-        Button download;
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_quiz);
@@ -34,7 +40,7 @@ public class QuizAuswahl extends AppCompatActivity{
         startQuiz = (Button) findViewById(R.id.start_quiz);
         quizlinkspinner = (Spinner) findViewById(R.id.new_quiz);
         quizlink = (EditText) findViewById(R.id.neues_quiz);
-
+        //Log.w("FileListe", files[0]);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.quizlinks, android.R.layout.simple_spinner_item);
@@ -64,9 +70,13 @@ public class QuizAuswahl extends AppCompatActivity{
                 int ce = v.getId();
 
                 if(ce == R.id.download_button){
-
-                    Intent intent = new Intent(QuizAuswahl.this, AddNewQuiz.class);
-                    startActivity(intent);
+                    download.setText("lädt herunter");
+                    AddNewQuiz downloaden = new AddNewQuiz();
+                    DownloadAndSaveXml.AsyncStuff bla = new DownloadAndSaveXml.AsyncStuff(quizlinkspinner.getSelectedItem().toString(), getApplicationContext());
+                    boolean successful = downloaden.download(bla);
+                    if (successful){
+                        download.setText("erfolgreich!");
+                    } else download.setText("das hat nicht geklappt... :(");
                 }
             }
 
@@ -103,7 +113,9 @@ public class QuizAuswahl extends AppCompatActivity{
                 if(ce == R.id.start_quiz){
 
                     linkname = downloaded_quizzes.getSelectedItem().toString();
-                    //.getFileInput(downloaded_quizzes.getSelectedItem().toString());
+                    startQuiz.setText("Quiz lädt");
+                    /*Quiz.SingleQuiz startedQuiz = new Quiz.SingleQuiz(linkname);
+                    List<QuizXmlParser.QuizEntry> getQuiz = QuizXmlParser.getQuiz(linkname);*/
 
                     Intent intent = new Intent(QuizAuswahl.this, Quiz.class);
                     startActivity(intent);
