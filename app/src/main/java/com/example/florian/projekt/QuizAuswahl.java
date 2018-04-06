@@ -60,7 +60,7 @@ public class QuizAuswahl extends AppCompatActivity{
             public void onNothingSelected(AdapterView<?> parent) {
                 //quizlink.setText("https://raw.githubusercontent.com/DiscW0rld/PaFlo-quiz/master/quiz_automaten.xml");
             }
-
+b
 
         }); */
        /* download.setOnClickListener(new View.OnClickListener() {
