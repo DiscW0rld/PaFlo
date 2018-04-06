@@ -121,6 +121,8 @@ public class QuizAuswahl extends AppCompatActivity{
 
                     Intent intent = new Intent(QuizAuswahl.this, Quiz.class);
                     startActivity(intent);
+
+
                 }
             }
 

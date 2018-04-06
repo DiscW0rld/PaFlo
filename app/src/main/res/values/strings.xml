@@ -2,8 +2,10 @@
     <string name="app_name">Pimp Your Vorlesung</string>
     <string name="Headline">PaFlo</string>
     <string-array name="definitionen">
-    <item> test </item>
-    <item>test2 </item>
+    <item> Didaktik </item>
+    <item>Unterricht </item>
+        <item> Didaktik </item>
+        <item>Unterricht </item>
     </string-array>
     <string-array name="erklaerungen">
         <item> blabla </item>
@@ -17,6 +19,6 @@
 
     <string-array name="heruntergeladen">
         <item>Quiz_Automaten_und_Berechenbarkeit.xml</item>
-        <item>quiz_schulpaedagogik.xml</item>
+        <item>Quiz_Schulpaedagogik.xml</item>
     </string-array>
 </resources>

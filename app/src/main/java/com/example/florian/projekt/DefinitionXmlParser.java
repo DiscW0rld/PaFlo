@@ -104,4 +104,20 @@ public class DefinitionXmlParser extends GeneralXmlParser{
             this.erklaerung = erklaerung;
         }
     }
+
+    public static List<DefinitionEntry> getExampleDef(){
+        List<DefinitionEntry> definition = new ArrayList<>();
+        DefinitionEntry def1 = new DefinitionEntry("Didaktik", "Theorie des Unterrichts bzw. des Lehrens und Lernens");
+        DefinitionEntry def2 = new DefinitionEntry("Unterricht", "die regelmäßige und systematische Vermittlung von Wissen durch einen Lehrer an Schüler");
+        DefinitionEntry def3 = new DefinitionEntry("Lernen", "sich Wissen und Fähigkeiten aneignen");
+        DefinitionEntry def4 = new DefinitionEntry("Lehren", "Vermittlung von Fähigkeiten und Kenntnissen an andere Personen");
+        DefinitionEntry def5 = new DefinitionEntry("Kompetenz", "Ein Sachverstand / eine Fähigkeit");
+        definition.add(def1);
+        definition.add(def2);
+        definition.add(def3);
+        definition.add(def4);
+        definition.add(def5);
+
+        return definition;
+    }
 }
