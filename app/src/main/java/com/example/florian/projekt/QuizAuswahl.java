@@ -36,13 +36,13 @@ public class QuizAuswahl extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_quiz);
 
-        download = (Button) findViewById(R.id.download_button);
+        download = (Button) findViewById(R.id.download_quiz);
         startQuiz = (Button) findViewById(R.id.start_quiz);
-        quizlinkspinner = (Spinner) findViewById(R.id.new_quiz);
-        quizlink = (EditText) findViewById(R.id.neues_quiz);
+        downloaded_quizzes = (Spinner) findViewById(R.id.heruntergeladene_quizzes);
+       // quizlink = (EditText) findViewById(R.id.neues_quiz);
         //Log.w("FileListe", files[0]);
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+        /*ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.quizlinks, android.R.layout.simple_spinner_item);
         quizlinkspinner.setAdapter(adapter);
 
@@ -62,8 +62,8 @@ public class QuizAuswahl extends AppCompatActivity{
             }
 
 
-        });
-        download.setOnClickListener(new View.OnClickListener() {
+        }); */
+       /* download.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -80,13 +80,13 @@ public class QuizAuswahl extends AppCompatActivity{
                 }
             }
 
-        });
+        }); */
 
         //man wählt ein bereits heruntergeladenes Quiz aus.
         //Es wird der Name der Datei angezeigt, die man öffnen möchte.
         //Mit Klick auf "Start Quiz!" wird diese Datei
         //im Quizordner herausgesucht, geparst und verwendet.
-        downloaded_quizzes = (Spinner) findViewById(R.id.offline_quizzes);
+       // downloaded_quizzes = (Spinner) findViewById(R.id.offline_quizzes);
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
                 R.array.heruntergeladen, android.R.layout.simple_spinner_item);
         downloaded_quizzes.setAdapter(adapter2);

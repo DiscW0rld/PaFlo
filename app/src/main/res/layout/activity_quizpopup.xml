@@ -30,6 +30,17 @@
         android:layout_gravity="center_horizontal"
         />
 
+    <EditText
+        android:id="@+id/neues_quiz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Link zu einer Quiz-.xml eingeben" />
+
+    <Spinner
+        android:id="@+id/new_quiz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Neues Quiz herunterladen" />
 
 
 </LinearLayout>

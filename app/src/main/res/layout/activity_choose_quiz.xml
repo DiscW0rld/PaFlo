@@ -10,43 +10,53 @@
     >
 
 
-    <EditText
-        android:id="@+id/neues_quiz"
+
+    <Space
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Link zu einer Quiz-.xml eingeben" />
-
-    <Spinner
-        android:id="@+id/new_quiz"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Neues Quiz herunterladen" />
-
-    <Button
-        android:id="@+id/download_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Download!" />
-
+        android:layout_margin="40dp"
+        />
     <TextView
         android:id="@+id/heruntergeladene"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:textSize="20dp"
         android:inputType="textPersonName"
+        android:layout_margin="10dp"
         android:text="Heruntergeladene Quizzes" />
 
     <Spinner
-        android:id="@+id/offline_quizzes"
+        android:id="@+id/heruntergeladene_quizzes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Heruntergeladene Quizzes"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        />
 
     <Button
         android:id="@+id/start_quiz"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="50dp"
         android:text="Start Quiz!" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        />
+
+    <Button
+        android:id="@+id/download_quiz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="50dp"
+        android:text="Neues Quiz herunterladen!" />
 
 
 </LinearLayout>
