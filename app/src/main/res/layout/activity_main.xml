@@ -10,13 +10,29 @@
     android:paddingRight="38dp"
     tools:context="com.example.florian.projekt.MainActivity">
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        />
+
+
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
+        android:textSize="40dp"
         android:text="Hauptmenü"
         android:textAlignment="center"
          />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+
+        />
 
     <Button
         android:id="@+id/neuer_content"
@@ -42,20 +58,6 @@
         android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/zurapp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Infos zur App"
-        android:layout_gravity="center_horizontal"
-        />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-
-
-    <Button
         android:id="@+id/abfrage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -78,6 +80,16 @@
     <Space
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/zurapp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Infos zur App"
+        android:layout_gravity="center_horizontal"
+        />
+
+
 
 </LinearLayout>
 

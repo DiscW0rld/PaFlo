@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if(ce == R.id.abfrage){
 
-                    Intent intent = new Intent(MainActivity.this, Definitionsabfrage.class);
+                    Intent intent = new Intent(MainActivity.this, DefinitionsabfrageAuswahl.class);
                     startActivity(intent);
                 }
             }

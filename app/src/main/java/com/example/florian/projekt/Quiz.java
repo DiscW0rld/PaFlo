@@ -55,7 +55,7 @@ public class Quiz extends AppCompatActivity {
 
     void belegen(){
 
-        final int fra = (int) (testQuiz.size() * Math.random());
+        final int fra = (int) (thisQuiz.size() * Math.random());
         frage.setText(fragen[fra]);
         richtigeAntwort[0] = richtigeAntworten[fra];
         antwortfragen[0] = antworten[4*fra];
@@ -71,7 +71,7 @@ public class Quiz extends AppCompatActivity {
     }
 
 
-    List<QuizXmlParser.QuizEntry> testQuiz,thisQuiz;
+    List<QuizXmlParser.QuizEntry> thisQuiz;
     String[] fragen, antworten, richtigeAntworten,richtigeAntwort,antwortfragen;
     String link;
     TextView frage, richtigefragen, gesamtfragen;
@@ -82,28 +82,28 @@ public class Quiz extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         link = QuizAuswahl.getLink();
         //testQuiz = QuizXmlParser.getExample();
-        testQuiz = QuizXmlParser.getQuiz(link, getApplicationContext());
-        fragen = new String[testQuiz.size()];
-        antworten = new String[4* testQuiz.size()];
-        richtigeAntworten = new String[testQuiz.size()];
+        thisQuiz = QuizXmlParser.getQuiz(link, getApplicationContext());
+        fragen = new String[thisQuiz.size()];
+        antworten = new String[4* thisQuiz.size()];
+        richtigeAntworten = new String[thisQuiz.size()];
         richtigeAntwort = new String [1];
         antwortfragen = new String[4];
 
 
         setContentView(R.layout.activity_quiz);
-        for (int i=0; i<testQuiz.size(); ++i){
-            fragen[i] = testQuiz.get(i).question;
+        for (int i=0; i<thisQuiz.size(); ++i){
+            fragen[i] = thisQuiz.get(i).question;
         }
 
-        for (int i=0; i<testQuiz.size(); ++i){
-            richtigeAntworten[i] = testQuiz.get(i).rightAns;
+        for (int i=0; i<thisQuiz.size(); ++i){
+            richtigeAntworten[i] = thisQuiz.get(i).rightAns;
         }
 
-        for (int i=0; i < testQuiz.size(); ++i){
-            antworten[4*i] = testQuiz.get(i).rightAns;
-            antworten[4*i+1] = testQuiz.get(i).wrAns1;
-            antworten[4*i+2] = testQuiz.get(i).wrAns2;
-            antworten[4*i+3] = testQuiz.get(i).wrAns3;
+        for (int i=0; i < thisQuiz.size(); ++i){
+            antworten[4*i] = thisQuiz.get(i).rightAns;
+            antworten[4*i+1] = thisQuiz.get(i).wrAns1;
+            antworten[4*i+2] = thisQuiz.get(i).wrAns2;
+            antworten[4*i+3] = thisQuiz.get(i).wrAns3;
 
 
         }
@@ -327,7 +327,5 @@ public class Quiz extends AppCompatActivity {
 
 
                 }
-
-
 
 }

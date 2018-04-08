@@ -11,6 +11,11 @@
     android:paddingRight="38dp"
     tools:context="com.example.florian.projekt.MainActivity">
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        />
 
     <Button
         android:id="@+id/download_definition"
@@ -36,6 +41,12 @@
         android:layout_height="wrap_content"
         android:text="Download!"
         android:enabled="false"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="60dp"
+        />
 
     <Button
         android:id="@+id/download_quiz"

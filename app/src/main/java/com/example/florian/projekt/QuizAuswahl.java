@@ -43,7 +43,7 @@ public class QuizAuswahl extends AppCompatActivity{
         startQuiz = (Button) findViewById(R.id.start_datei);
         startQuiz.setText("Ausgewähltes Quiz starten");
         downloaded_quizzes = (Spinner) findViewById(R.id.spinner_heruntergeladene_datein);
-        // quizlink = (EditText) findViewById(R.id.neues_quiz);
+       // quizlink = (EditText) findViewById(R.id.neues_quiz);
         //Log.w("FileListe8", files[0]);
 
         /*ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -90,7 +90,7 @@ b
         //Es wird der Name der Datei angezeigt, die man öffnen möchte.
         //Mit Klick auf "Start Quiz!" wird diese Datei
         //im Quizordner herausgesucht, geparst und verwendet.
-        // downloaded_quizzes = (Spinner) findViewById(R.id.offline_quizzes);
+       // downloaded_quizzes = (Spinner) findViewById(R.id.offline_quizzes);
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
                 R.array.heruntergeladen, android.R.layout.simple_spinner_item);
         downloaded_quizzes.setAdapter(adapter2);
