@@ -3,6 +3,7 @@ package com.example.florian.projekt;
 
 import android.app.ProgressDialog;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -16,9 +17,9 @@ import android.widget.TextView;
 //  (Aufruf von activity_quiz)
 // Was ist ausgelagert?
 //  das Parsen, Downloaden und Speichern,
-public class AddNewQuiz extends DownloadAndSaveXml{
+public class AddNewXml extends DownloadAndSaveXml{
 
-    public AddNewQuiz(){
+    public AddNewXml(){
 
         xmlURL = this.xmlURL;
     }
@@ -35,6 +36,13 @@ public class AddNewQuiz extends DownloadAndSaveXml{
     }
     public void setFileName(String newName) { filename = newName; }
 
+    //lädt eine neue Index Xml herunter
+    public static void downloadXml(String url, Context context){
+        AddNewXml downloaden = new AddNewXml();
+        DownloadAndSaveXml.AsyncStuff downloadInfo = new DownloadAndSaveXml.AsyncStuff(url, context);
+        boolean successful = downloaden.download(downloadInfo);
+        return;
+    }
     public boolean download(AsyncStuff bla){
         // Execute DownloadXML AsyncTask
         //setURL();

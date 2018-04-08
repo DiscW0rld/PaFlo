@@ -28,7 +28,7 @@ public class QuizDialog extends DialogFragment {
                         dialog.dismiss();
                         int selectedPosition = ((AlertDialog)dialog).getListView().getCheckedItemPosition();
                         selectedURL = URLs[selectedPosition];
-                        AddNewQuiz.setURL(selectedURL);
+                        AddNewXml.setURL(selectedURL);
                     }
                 })
                 .setNegativeButton("Abbrechen", new DialogInterface.OnClickListener() {

@@ -1,0 +1,73 @@
+package com.example.florian.projekt;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+
+public class DownloadActivity extends AppCompatActivity {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_download);
+
+        final Button defDownload = (Button) findViewById(R.id.download_definition);
+        final EditText defLink = (EditText) findViewById(R.id.neue_def_edit);
+        final Spinner defSpinner = (Spinner) findViewById(R.id.new_def_spinner);
+        final Button defDownloadStart = (Button) findViewById(R.id.download_def_button);
+        final Button quizDownload = (Button) findViewById(R.id.download_quiz);
+        final EditText quizLink = (EditText) findViewById(R.id.neues_quiz_edit);
+        final Spinner quizSpinner = (Spinner) findViewById(R.id.new_quiz_spinner);
+        final Button quizDownloadStart = (Button) findViewById(R.id.download_quiz_button);
+
+
+
+        defDownload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int ce = v.getId();
+
+                if(ce == R.id.download_definition){
+
+                    defLink.setEnabled(true);
+                    defSpinner.setEnabled(true);
+                    defDownloadStart.setEnabled(true);
+                    quizLink.setEnabled(false);
+                    quizSpinner.setEnabled(false);
+                    quizDownloadStart.setEnabled(false);
+                    /*Intent intent = new Intent(DownloadActivity.this, DefinitionsAuswahl.class);
+                    startActivity(intent);*/
+                }
+            }
+
+        });
+
+        quizDownload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int ce = v.getId();
+
+                if(ce == R.id.download_quiz){
+
+                    defLink.setEnabled(false);
+                    defSpinner.setEnabled(false);
+                    defDownloadStart.setEnabled(false);
+                    quizLink.setEnabled(true);
+                    quizSpinner.setEnabled(true);
+                    quizDownloadStart.setEnabled(true);
+                    /*Intent intent = new Intent(DownloadActivity.this, DefinitionsAuswahl.class);
+                    startActivity(intent);*/
+                }
+            }
+
+        });
+
+    }
+
+
+
+}

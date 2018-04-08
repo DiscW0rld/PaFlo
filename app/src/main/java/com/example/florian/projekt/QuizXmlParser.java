@@ -23,7 +23,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 public class QuizXmlParser extends GeneralXmlParser {
 
-
     public static List<QuizXmlParser.QuizEntry> getQuiz(String xmlName, Context context){
         List<QuizEntry> quizdata = new ArrayList<QuizEntry>();
         try {
@@ -73,6 +72,8 @@ public class QuizXmlParser extends GeneralXmlParser {
         quiz.add(Frage5);
         return quiz;
     }
+
+
     public static List<QuizEntry> parse(InputStream in) throws XmlPullParserException, IOException {
         try {
             XmlPullParser parser = Xml.newPullParser();
@@ -154,14 +155,6 @@ public class QuizXmlParser extends GeneralXmlParser {
         return rightAns;
     }
 
-    //liest falsche Antworten
-    private static String readAnswers(XmlPullParser parser) throws IOException, XmlPullParserException {
-        parser.require(XmlPullParser.START_TAG, ns,"answers");
-        String answers = readText(parser);
-        parser.require(XmlPullParser.END_TAG, ns, "answers");
-        return answers;
-    }
-
     private String readQuizName(XmlPullParser parser) throws IOException, XmlPullParserException{
         parser.require(XmlPullParser.START_TAG, ns, "quizname");
         String quizName = readText(parser);
@@ -190,19 +183,5 @@ public class QuizXmlParser extends GeneralXmlParser {
         parser.require(XmlPullParser.END_TAG, ns, "WrAns3");
         return wrAns3;
     }
-    /*public static  List<QuizEntry> getexample() {
-        List<QuizEntry> Beispiel = new ArrayList<QuizEntry>();
-
-       // QuizEntry Frage1 = ("A", "B", "C", "D", "e");
-        QuizEntry Frage2 = new QuizEntry("Hallo", "ABC", "B", "C", "D");
-        QuizEntry Frage3 = new QuizEntry("Hallo", "A", "B", "C", "D");
-        QuizEntry Frage4 = new QuizEntry("Hallo", "A", "B", "C", "D");
-        QuizEntry Frage5 = new QuizEntry("Hallo", "A", "B", "C", "D");
-
-        Beispiel.add(Frage2);
-
-        return Beispiel;
-    }
-*/
 }
 
