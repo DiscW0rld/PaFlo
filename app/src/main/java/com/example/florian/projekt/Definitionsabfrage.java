@@ -14,7 +14,9 @@ import java.util.List;
 
 public class Definitionsabfrage extends AppCompatActivity {
 
-
+    String link;
+    String[] def, defbeschreibung;
+    List<DefinitionXmlParser.DefinitionEntry> thisDef;
     TextView besch, defTitel;
     Button aufdecken, neueDef;
     DefinitionXmlParser definitionXmlParser = new DefinitionXmlParser();
@@ -24,28 +26,27 @@ public class Definitionsabfrage extends AppCompatActivity {
         setContentView(R.layout.activity_definitionsabfrage);
 
         XmlPullParser parser = getApplicationContext().getResources().getXml(R.xml.definitionen);
-
+        link = DefinitionsAuswahl.getLink();
         besch = (TextView) findViewById(R.id.defText);
         defTitel = (TextView) findViewById(R.id.defName);
         aufdecken = (Button) findViewById(R.id.aufdecken);
         neueDef = (Button) findViewById(R.id.neueDef);
-        List<DefinitionXmlParser.DefinitionEntry> TestDefabfrage = DefinitionXmlParser.getExampleDef();
         Resources res = getResources();
-        final String[] defNamen = new String [TestDefabfrage.size()];
-        final String[] beschreibung = new String[TestDefabfrage.size()];
+        def = new String [thisDef.size()];
+        defbeschreibung = new String[thisDef.size()];
 
-        for (int i=0; i<TestDefabfrage.size(); ++i){
-            defNamen[i] = TestDefabfrage.get(i).defTitel;
+        for (int i=0; i<thisDef.size(); ++i){
+            def[i] = thisDef.get(i).defTitel;
         }
 
-        for (int i=0; i<TestDefabfrage.size(); ++i){
-            beschreibung[i] = TestDefabfrage.get(i).erklaerung;
+        for (int i=0; i<thisDef.size(); ++i){
+            defbeschreibung[i] =thisDef.get(i).erklaerung;
         }
 
 
-        final int zufall = (int) (defNamen.length * Math.random());
-        defTitel.setText(defNamen[zufall]);
-        besch.setText(beschreibung[zufall]);
+        final int zufall = (int) (def.length * Math.random());
+        defTitel.setText(def[zufall]);
+        besch.setText(defbeschreibung[zufall]);
         besch.setVisibility(View.INVISIBLE);
 
 
@@ -54,9 +55,9 @@ public class Definitionsabfrage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                int zufall = (int) (defNamen.length *Math.random());
-                defTitel.setText(defNamen[zufall]);
-                besch.setText(beschreibung[zufall]);
+                int zufall = (int) (def.length *Math.random());
+                defTitel.setText(def[zufall]);
+                besch.setText(defbeschreibung[zufall]);
                 besch.setVisibility(View.INVISIBLE);
 
             }

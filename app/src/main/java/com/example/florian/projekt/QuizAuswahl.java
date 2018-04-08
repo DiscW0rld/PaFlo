@@ -122,7 +122,7 @@ b
                     linkname = downloaded_quizzes.getSelectedItem().toString();
                     startQuiz.setText("Quiz lädt");
                     /*Quiz.SingleQuiz startedQuiz = new Quiz.SingleQuiz(linkname);
-                    List<QuizXmlParser.QuizEntry> getQuiz = QuizXmlParser.getQuiz(linkname, getApplicationContext());*/
+                    List<QuizXmlParser.QuizEntry> getQuiz = QuizXmlParser.getQuiz(linkname);*/
 
                     Intent intent = new Intent(QuizAuswahl.this, Quiz.class);
                     startActivity(intent);

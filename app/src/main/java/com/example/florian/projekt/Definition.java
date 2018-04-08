@@ -18,38 +18,37 @@ import java.util.List;
 
 public class Definition extends AppCompatActivity{
 
+    String link;
+    String [] def, defbeschreibung;
+    List<DefinitionXmlParser.DefinitionEntry> thisDef;
     private Spinner spinner; //der Spinner muss noch Einträge kriegen!!
     private TextView besch;
-    private TextView defTitel;
-
+    private TextView defTitel;List<String> spinnerarray = new ArrayList<String>();
     DefinitionXmlParser definitionXmlParser = new DefinitionXmlParser();
+
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_definition);
-
-
-        //mittelfristig kommt die xml von online
-
+        link = DefinitionsAuswahl.getLink();
         XmlPullParser parser = getApplicationContext().getResources().getXml(R.xml.definitionen);
-
         spinner = (Spinner) findViewById(R.id.defAuswahl);
         besch = (TextView) findViewById(R.id.defText);
         defTitel = (TextView) findViewById(R.id.defName);
-        List<DefinitionXmlParser.DefinitionEntry> TestDef = DefinitionXmlParser.getExampleDef();
-        final String[] definitionen = new String[TestDef.size()];
-        final String[] beschreibungen = new String[TestDef.size()];
+        def = new String[thisDef.size()];
+        defbeschreibung = new String[thisDef.size()];
         List<String> spinnerarray = new ArrayList<String>();
 
-        for (int i=0; i<TestDef.size(); ++i){
-            definitionen[i] = TestDef.get(i).defTitel;
+        for (int i=0; i<thisDef.size(); ++i){
+            def[i] = thisDef.get(i).defTitel;
         }
 
-        for (int i=0; i<TestDef.size(); ++i){
-            beschreibungen[i] = TestDef.get(i).erklaerung;
+        for (int i=0; i<thisDef.size(); ++i){
+            defbeschreibung[i] = thisDef.get(i).erklaerung;
         }
 
-        for (int i=0; i<TestDef.size(); ++i){
-            spinnerarray.add(TestDef.get(i).defTitel);
+        for (int i=0; i<thisDef.size(); ++i){
+            spinnerarray.add(thisDef.get(i).defTitel);
         }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
@@ -68,8 +67,8 @@ public class Definition extends AppCompatActivity{
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
            @Override
            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-               defTitel.setText(definitionen[position]);
-               besch.setText(beschreibungen[position]);
+               defTitel.setText(def[position]);
+               besch.setText(defbeschreibung[position]);
             }
 
            @Override
