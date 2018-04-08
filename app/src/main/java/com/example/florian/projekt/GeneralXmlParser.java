@@ -22,9 +22,40 @@ import java.util.List;
 public class GeneralXmlParser {
     static final String ns = null;
 
+
+    List<List<String>> getDownloadedContent(Context context){
+
+        String[] fileList = context.fileList();
+        List<List<String>> downloadedFiles = new ArrayList<>();
+
+
+        for (int i=0; i<fileList.length; ++i){
+            if (fileList[i].startsWith("Quiz_"))
+                downloadedFiles.get(0).add(fileList[i]);
+
+            else if (fileList[i].startsWith("Def_"))
+                downloadedFiles.get(1).add(fileList[i]);
+        }
+
+        return downloadedFiles;
+    }
+
+    List<String> getDownloadedQuizzes(Context context){
+
+        return getDownloadedContent(context).get(0);
+    }
+
+    List<String> getDownloadedDefs(Context context){
+
+        return getDownloadedContent(context).get(1);
+    }
+
+
     public class Index{
+        String name;
         String url;
-        Index(String url){
+        Index(String name, String url){
+            this.name = name;
             this.url = url;
         }
     }

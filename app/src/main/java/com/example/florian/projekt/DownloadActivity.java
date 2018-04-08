@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -24,6 +25,19 @@ public class DownloadActivity extends AppCompatActivity {
 
 
 
+        defSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+
+
+        });
+
         defDownload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,9 +48,9 @@ public class DownloadActivity extends AppCompatActivity {
 
                     defLink.setEnabled(true);
                     defSpinner.setEnabled(true);
-                    defDownloadStart.setEnabled(true);
+                    defDownloadStart.setVisibility(View.VISIBLE);
                     quizLink.setEnabled(false);
-                    quizSpinner.setEnabled(false);
+                    quizSpinner.setVisibility(View.INVISIBLE);
                     quizDownloadStart.setEnabled(false);
                     /*Intent intent = new Intent(DownloadActivity.this, DefinitionsAuswahl.class);
                     startActivity(intent);*/
@@ -44,6 +58,9 @@ public class DownloadActivity extends AppCompatActivity {
             }
 
         });
+
+
+
 
         quizDownload.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,10 +71,10 @@ public class DownloadActivity extends AppCompatActivity {
                 if(ce == R.id.download_quiz){
 
                     defLink.setEnabled(false);
-                    defSpinner.setEnabled(false);
+                    defSpinner.setVisibility(View.INVISIBLE);
                     defDownloadStart.setEnabled(false);
                     quizLink.setEnabled(true);
-                    quizSpinner.setEnabled(true);
+                    quizSpinner.setVisibility(View.VISIBLE);
                     quizDownloadStart.setEnabled(true);
                     /*Intent intent = new Intent(DownloadActivity.this, DefinitionsAuswahl.class);
                     startActivity(intent);*/

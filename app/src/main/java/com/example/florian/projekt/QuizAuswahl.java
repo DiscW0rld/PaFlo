@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
@@ -17,30 +18,33 @@ import java.util.List;
 
 public class QuizAuswahl extends AppCompatActivity{
 
-    EditText quizlink;
-    Spinner quizlinkspinner;
-    public static String linkname;
-    Button startQuiz;
-    Spinner downloaded_quizzes;
-    Button download;
 
+    public static String linkname;
+    TextView geladeneDatein;
+    Button startQuiz,downloadQuiz;
+    Spinner downloaded_quizzes;
 
     public static String getLink(){
         return linkname;
     }
+
 
     public void onCreate(Bundle savedInstanceState) {
 
 
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_choose_quiz);
+        setContentView(R.layout.activity_choose_file);
 
-        download = (Button) findViewById(R.id.download_quiz);
-        startQuiz = (Button) findViewById(R.id.start_quiz);
-        downloaded_quizzes = (Spinner) findViewById(R.id.heruntergeladene_quizzes);
-       // quizlink = (EditText) findViewById(R.id.neues_quiz);
-        //Log.w("FileListe", files[0]);
+        geladeneDatein = (TextView) findViewById(R.id.heruntergeladene_datein);
+        geladeneDatein.setText("Vorhandene Quizzes");
+        downloadQuiz = (Button) findViewById(R.id.download_datei);
+        downloadQuiz.setText("Neues Quiz herunterladen");
+        startQuiz = (Button) findViewById(R.id.start_datei);
+        startQuiz.setText("Ausgewähltes Quiz starten");
+        downloaded_quizzes = (Spinner) findViewById(R.id.spinner_heruntergeladene_datein);
+        // quizlink = (EditText) findViewById(R.id.neues_quiz);
+        //Log.w("FileListe8", files[0]);
 
         /*ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.quizlinks, android.R.layout.simple_spinner_item);
@@ -86,7 +90,7 @@ b
         //Es wird der Name der Datei angezeigt, die man öffnen möchte.
         //Mit Klick auf "Start Quiz!" wird diese Datei
         //im Quizordner herausgesucht, geparst und verwendet.
-       // downloaded_quizzes = (Spinner) findViewById(R.id.offline_quizzes);
+        // downloaded_quizzes = (Spinner) findViewById(R.id.offline_quizzes);
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
                 R.array.heruntergeladen, android.R.layout.simple_spinner_item);
         downloaded_quizzes.setAdapter(adapter2);
@@ -104,13 +108,14 @@ b
 
 
         });
+
         startQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 int ce = v.getId();
 
-                if(ce == R.id.start_quiz){
+                if(ce == R.id.start_datei){
 
                     linkname = downloaded_quizzes.getSelectedItem().toString();
                     startQuiz.setText("Quiz lädt");
@@ -119,6 +124,25 @@ b
 
                     Intent intent = new Intent(QuizAuswahl.this, Quiz.class);
                     startActivity(intent);
+
+
+                }
+            }
+
+        });
+
+        downloadQuiz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int ce = v.getId();
+
+                if(ce == R.id.download_datei){
+
+
+                    Intent intent = new Intent(QuizAuswahl.this, DownloadActivity.class);
+                    startActivity(intent);
+
 
 
                 }
