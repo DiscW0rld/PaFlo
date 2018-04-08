@@ -31,6 +31,8 @@
         <activity android:name=".QuizPopUp"/>
         <activity android:name=".Definition" />
         <activity android:name=".Definitionsabfrage" />
+        <activity android:name=".DefinitionsabfrageAuswahl"/>
+
 
     </application>
 
