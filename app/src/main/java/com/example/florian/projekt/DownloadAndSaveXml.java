@@ -48,7 +48,7 @@ public class DownloadAndSaveXml extends AppCompatActivity{
                 filename = newName; }
 
 
-        public class DownloadXML extends AsyncTask<AsyncStuff, Context, Void>{
+        public class DownloadXML extends AsyncTask<AsyncStuff, Context, Boolean>{
 
                 private String xmlURL = "b";
                 @Override
@@ -67,8 +67,9 @@ public class DownloadAndSaveXml extends AppCompatActivity{
                 }
 
                 @Override
-                protected Void doInBackground(AsyncStuff... xmlURL) {
+                protected Boolean doInBackground(AsyncStuff... xmlURL) {
 
+                    boolean successful = false;
                         HttpURLConnection urlConnection = null;
                         String result = "";
                         //FileOutputStream foStream;
@@ -117,10 +118,12 @@ public class DownloadAndSaveXml extends AppCompatActivity{
 
                                 foStream.close();
 
+                                successful = true;
 
                         } catch (Exception e) {
                                 Log.e("Laden Error", e.getMessage());
                                 e.printStackTrace();
+                                successful = false;
                         }
 
 

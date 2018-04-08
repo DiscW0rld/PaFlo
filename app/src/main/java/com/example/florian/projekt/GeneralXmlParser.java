@@ -23,35 +23,39 @@ public class GeneralXmlParser {
     static final String ns = null;
 
 
-    List<List<String>> getDownloadedContent(Context context){
+
+    public static List<List<String>> getDownloadedContent(Context context) {
 
         String[] fileList = context.fileList();
-        List<List<String>> downloadedFiles = new ArrayList<>();
+        List<List<String>> downloadedFiles = new ArrayList<>(2);
+        List<String> quizzes = new ArrayList<>();
+        List<String> defs = new ArrayList<>();
 
-
-        for (int i=0; i<fileList.length; ++i){
+        for (int i = 0; i < fileList.length; ++i) {
             if (fileList[i].startsWith("Quiz_"))
-                downloadedFiles.get(0).add(fileList[i]);
+                quizzes.add(fileList[i]);
 
             else if (fileList[i].startsWith("Def_"))
-                downloadedFiles.get(1).add(fileList[i]);
+                defs.add(fileList[i]);
         }
 
+        downloadedFiles.add(quizzes);
+        downloadedFiles.add(defs);
         return downloadedFiles;
     }
 
-    List<String> getDownloadedQuizzes(Context context){
+    public static List<String> getDownloadedQuizzes(Context context){
 
         return getDownloadedContent(context).get(0);
     }
 
-    List<String> getDownloadedDefs(Context context){
+    public static List<String> getDownloadedDefs(Context context){
 
         return getDownloadedContent(context).get(1);
     }
 
 
-    public class Index{
+    public static class Index{
         String name;
         String url;
         Index(String name, String url){
@@ -108,24 +112,53 @@ public class GeneralXmlParser {
             String name = parser.getName();
             // Starts by looking for the entry tag
             if (name.equals("entry")) {
-                entry.url = readEntry(parser);
+                entry = readEntry(parser);
                 index.add(entry);
             } else {
                 skipTag(parser);
             }
         }
+
         return index;
     }
 
     //von readIndex aufgerufen
     //liest einen einzelnen Indexeintrag aus
-    private static String readEntry(XmlPullParser parser) throws IOException, XmlPullParserException {
+    private static Index readEntry(XmlPullParser parser) throws IOException, XmlPullParserException {
         parser.require(XmlPullParser.START_TAG, ns, "entry");
-        String entry = readText(parser);
-        parser.require(XmlPullParser.END_TAG, ns, "entry");
-        return entry;
+        String name = null;
+        String url = null;
+        while (parser.next() != XmlPullParser.END_TAG) {
+            if (parser.getEventType() != XmlPullParser.START_TAG) {
+                continue;
+            }
+            String eintrag = parser.getName();
+            if (eintrag.equals("name")) {
+                name = readName(parser);
+            } else if (eintrag.equals("link")) {
+                url = readUrl(parser);
+            } else {
+                skipTag(parser);
+            }
+        }
+
+        return new Index(name, url);
     }
 
+
+    private static String readName(XmlPullParser parser) throws IOException, XmlPullParserException {
+        parser.require(XmlPullParser.START_TAG, ns, "name");
+        String name = readText(parser);
+        parser.require(XmlPullParser.END_TAG, ns, "name");
+        return name;
+    }
+
+    private static String readUrl(XmlPullParser parser) throws IOException, XmlPullParserException {
+        parser.require(XmlPullParser.START_TAG, ns, "link");
+        String url = readText(parser);
+        parser.require(XmlPullParser.END_TAG, ns, "link");
+        return url;
+    }
     /*public static void saveXml(Context context, Document doc, String xmlName) {
         FileOutputStream foStream;
         try {
