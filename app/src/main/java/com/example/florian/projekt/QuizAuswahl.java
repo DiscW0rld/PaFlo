@@ -91,9 +91,11 @@ b
         //Mit Klick auf "Start Quiz!" wird diese Datei
         //im Quizordner herausgesucht, geparst und verwendet.
        // downloaded_quizzes = (Spinner) findViewById(R.id.offline_quizzes);
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
-                R.array.heruntergeladen, android.R.layout.simple_spinner_item);
-        downloaded_quizzes.setAdapter(adapter2);
+
+        List<String> quizzes = GeneralXmlParser.getDownloadedQuizzes(getApplicationContext());
+        ArrayAdapter<String> offline_quizzes = new ArrayAdapter(this, android.R.layout.simple_spinner_item,
+                quizzes);
+        downloaded_quizzes.setAdapter(offline_quizzes);
 
         downloaded_quizzes.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -119,7 +121,7 @@ b
 
                     linkname = downloaded_quizzes.getSelectedItem().toString();
                     startQuiz.setText("Quiz lädt");
-                   /* Quiz.SingleQuiz startedQuiz = new Quiz.SingleQuiz(linkname);
+                    /*Quiz.SingleQuiz startedQuiz = new Quiz.SingleQuiz(linkname);
                     List<QuizXmlParser.QuizEntry> getQuiz = QuizXmlParser.getQuiz(linkname);*/
 
                     Intent intent = new Intent(QuizAuswahl.this, Quiz.class);

@@ -20,6 +20,14 @@ public class MainActivity extends AppCompatActivity {
         final Button zurapp = (Button) findViewById(R.id.zurapp);
         final Button quiz = (Button) findViewById(R.id.quiz);
 
+
+
+
+        AddNewXml.downloadXml("https://raw.githubusercontent.com/DiscW0rld/PaFlo-definitions/Development/defIndex.xml", getApplicationContext());
+
+        AddNewXml.downloadXml("https://raw.githubusercontent.com/DiscW0rld/PaFlo-quiz/master/quizIndex.xml", getApplicationContext());
+
+
         download_stuff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
