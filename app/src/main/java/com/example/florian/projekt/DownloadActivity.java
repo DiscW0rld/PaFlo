@@ -47,8 +47,8 @@ public class DownloadActivity extends AppCompatActivity {
                 if(ce == R.id.download_definition){
 
                     defLink.setEnabled(true);
-                    defSpinner.setEnabled(true);
-                    defDownloadStart.setVisibility(View.VISIBLE);
+                    defSpinner.setVisibility(View.VISIBLE);
+                    defDownloadStart.setEnabled(true);
                     quizLink.setEnabled(false);
                     quizSpinner.setVisibility(View.INVISIBLE);
                     quizDownloadStart.setEnabled(false);
