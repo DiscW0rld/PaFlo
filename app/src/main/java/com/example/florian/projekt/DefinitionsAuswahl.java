@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class DefinitionsAuswahl extends AppCompatActivity{
 
 
@@ -86,9 +88,11 @@ b
         //Mit Klick auf "Start Quiz!" wird diese Datei
         //im Quizordner herausgesucht, geparst und verwendet.
         // downloaded_quizzes = (Spinner) findViewById(R.id.offline_quizzes);
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
-                R.array.heruntergeladen, android.R.layout.simple_spinner_item);
-        downloaded_definition.setAdapter(adapter2);
+        List<String> defs = GeneralXmlParser.getDownloadedDefs(getApplicationContext());
+        ArrayAdapter<String> offline_defs = new ArrayAdapter(this, android.R.layout.simple_spinner_item,
+                defs);
+        downloaded_definition.setAdapter(offline_defs);
+
 
         downloaded_definition.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

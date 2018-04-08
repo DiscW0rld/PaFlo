@@ -78,25 +78,24 @@ public class DownloadAndSaveXml extends AppCompatActivity{
 
                         //Context context = QuizAuswahl.getApplicationContext();
                         try {
-                                String test = xmlURL[0].url;
                                 URL url = new URL(xmlURL[0].url);
                                 Context cont = xmlURL[0].cont;
 
-                                urlConnection = (HttpURLConnection) url.openConnection();
+                            urlConnection = (HttpURLConnection) url.openConnection();
 
-                                int code = urlConnection.getResponseCode();
+                            int code = urlConnection.getResponseCode();
 
-                                if(code==200){
-                                        InputStream in = new BufferedInputStream(urlConnection.getInputStream());
-                                        if (in != null) {
-                                                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(in));
-                                                String line = "";
+                            if(code==200){
+                                InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+                                if (in != null) {
+                                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(in));
+                                    String line = "";
 
-                                                while ((line = bufferedReader.readLine()) != null)
-                                                        result += line;
-                                        }
-                                        in.close();
+                                    while ((line = bufferedReader.readLine()) != null)
+                                        result += line;
                                 }
+                                in.close();
+                            }
 
                                 DocumentBuilderFactory dbf = DocumentBuilderFactory
                                         .newInstance();
@@ -119,6 +118,7 @@ public class DownloadAndSaveXml extends AppCompatActivity{
                                 foStream.close();
 
                                 successful = true;
+                                String item = "blub";
 
                         } catch (Exception e) {
                                 Log.e("Laden Error", e.getMessage());
@@ -128,7 +128,7 @@ public class DownloadAndSaveXml extends AppCompatActivity{
 
 
 
-                        return null;
+                        return successful;
                 }
         }
 

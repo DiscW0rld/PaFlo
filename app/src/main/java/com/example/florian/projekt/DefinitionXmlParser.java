@@ -49,7 +49,7 @@ public class DefinitionXmlParser extends GeneralXmlParser{
             }
             String name = parser.getName();
             // Starts by looking for the entry tag
-            if (name.equals("Definition")) {
+            if (name.equals("definition")) {
                 defTitelData.add(readDefinitionEntry(parser));
             } else {
                 skipTag(parser);

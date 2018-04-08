@@ -75,7 +75,7 @@ public class DownloadActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (!defLink.getText().toString().equals(defSpinner.getSelectedItem().toString())) {
-                    AddNewXml.downloadXml(defLink.toString(), getApplicationContext());
+                    AddNewXml.downloadXml(defLink.getText().toString(), getApplicationContext());
                 }
                 else AddNewXml.downloadXml(defIndex.get(defSpinner.getSelectedItemPosition()).url, getApplicationContext());
             }
@@ -140,8 +140,8 @@ public class DownloadActivity extends AppCompatActivity {
                 // falls der Text, der im EditText steht, nicht mit dem ausgewählten defSpinner-Eintrag übereinstimmt,
                 // wird davon ausgegangen, dass der User einen eigenen xml-Link eingegeben hat.
                 //dann wird der eingegebene Link downgeloadet
-                if (!quizLink.toString().equals(defSpinner.getSelectedItem().toString())) {
-                    AddNewXml.downloadXml(quizLink.toString(), getApplicationContext());
+                if (!quizLink.getText().toString().equals(quizSpinner.getSelectedItem().toString())) {
+                    AddNewXml.downloadXml(quizLink.getText().toString(), getApplicationContext());
                 }
                 else AddNewXml.downloadXml(quizIndex.get(quizSpinner.getSelectedItemPosition()).url, getApplicationContext());
             }
