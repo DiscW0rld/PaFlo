@@ -153,11 +153,13 @@ public class DownloadAndSaveXml extends AppCompatActivity {
         protected void onPostExecute(Boolean result) {
             super.onPostExecute(result);
             //p.dismiss();
-            if (result)
-                Toast.makeText(cont, "Download beendet!", Toast.LENGTH_LONG).show();
-
-            else
-                Toast.makeText(cont, "Download ist gescheitert, überprüfe am besten deinen Link und/oder deine Netzwerkverbindung.", Toast.LENGTH_LONG).show();
+            if (!(url.equals("https://raw.githubusercontent.com/DiscW0rld/PaFlo-definitions/Development/defIndex.xml") ||
+                    url.equals("https://raw.githubusercontent.com/DiscW0rld/PaFlo-quiz/master/quizIndex.xml"))) {
+                if (result)
+                    Toast.makeText(cont, "Download beendet!", Toast.LENGTH_LONG).show();
+                else
+                    Toast.makeText(cont, "Download ist gescheitert, überprüfe am besten deinen Link und/oder deine Netzwerkverbindung.", Toast.LENGTH_LONG).show();
+            }
         }
     }
 }

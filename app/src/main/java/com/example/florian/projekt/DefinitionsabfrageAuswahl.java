@@ -165,7 +165,7 @@ b
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(DefinitionsabfrageAuswahl.this);
                     builder.setTitle("Hilfe");
-                    builder.setMessage("Durch Herunterladen eines Definitionspaketes werden die Definitionen und Erklärungen in die Abfrage übernommen");
+                    builder.setMessage("Durch Herunterladen eines Definitionspaketes werden die Definitionen und Erklärungen in die Abfrage übernommen.\n\n Du findest deine Definitionssammlung nicht? Überprüfe noch einmal, ob der Download geklappt hat, die xml den Vorgaben entspricht, die im <i>PaFlo-definitions</i>-Repo aufgeführt sind, und außerdem syntaktisch korrekt ist.");
                     builder.setPositiveButton("OK", null);
 
                       //  public void onClick(DialogInterface dialog, int which) {
