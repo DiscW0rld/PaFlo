@@ -47,7 +47,7 @@ public class AddNewXml extends DownloadAndSaveXml{
         // Execute DownloadXML AsyncTask
         //setURL();
         try {
-            new DownloadXML().execute(bla);
+            new DownloadXML(bla).execute(bla);
         } catch (Exception e){
             Log.w("download", "Download muss fehlgeschlagen haben");
             return false;

@@ -27,6 +27,7 @@ public class Definitionsabfrage extends AppCompatActivity {
 
         XmlPullParser parser = getApplicationContext().getResources().getXml(R.xml.definitionen);
         link = DefinitionsAuswahl.getLink();
+        thisDef = DefinitionXmlParser.getDef(link, getApplicationContext());
         besch = (TextView) findViewById(R.id.defText);
         defTitel = (TextView) findViewById(R.id.defName);
         aufdecken = (Button) findViewById(R.id.aufdecken);

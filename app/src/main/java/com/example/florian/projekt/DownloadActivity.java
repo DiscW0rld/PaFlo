@@ -18,6 +18,7 @@ public class DownloadActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_download);
 
+
         final Button defDownload = (Button) findViewById(R.id.download_definition);
         final EditText defLink = (EditText) findViewById(R.id.neue_def_edit);
         final Spinner defSpinner = (Spinner) findViewById(R.id.new_def_spinner);

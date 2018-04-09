@@ -1,5 +1,7 @@
 package com.example.florian.projekt;
 
+import android.content.Context;
+import android.util.Log;
 import android.util.Xml;
 
 import com.example.florian.projekt.QuizXmlParser.QuizEntry;
@@ -7,6 +9,7 @@ import com.example.florian.projekt.QuizXmlParser.QuizEntry;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -21,12 +24,32 @@ public class DefinitionXmlParser extends GeneralXmlParser{
 
     List<DefinitionEntry> defTitelData;
 
-    public List<DefinitionEntry> parseDefinition(InputStream in) throws XmlPullParserException, IOException {
+
+    public static List<DefinitionXmlParser.DefinitionEntry> getDef(String xmlName, Context context){
+        List<DefinitionEntry> defdata = new ArrayList<DefinitionEntry>();
+        try {
+            FileInputStream fis = context.openFileInput(xmlName);
+            //InputStreamReader isr = new InputStreamReader(fis);
+            defdata = DefinitionXmlParser.parseDefinitions(fis);
+            /*FileInputStream is;
+            //is = openFileInput(name);
+            is = new FileInputStream(xmlName);
+            quizdata = QuizXmlParser.parse(is);*/
+        }
+        catch(Exception e){
+            Log.e("InputStream", e.getMessage());
+            e.printStackTrace();
+        }
+        return defdata;
+    }
+
+    public static List<DefinitionEntry> parseDefinitions(InputStream in) throws XmlPullParserException, IOException {
         try {
             XmlPullParser parser = Xml.newPullParser();
             parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
             parser.setInput(in, null);
             parser.nextTag();
+            parser.getText();
             return readDefinitions(parser);
         } finally {
             in.close();
@@ -42,7 +65,7 @@ public class DefinitionXmlParser extends GeneralXmlParser{
     public static List<DefinitionEntry> readDefinitions(XmlPullParser parser) throws XmlPullParserException, IOException {
         List<DefinitionEntry> defTitelData = new ArrayList<DefinitionEntry>();
 
-        parser.require(XmlPullParser.START_TAG, ns, "");
+        parser.require(XmlPullParser.START_TAG, ns, "defList");
         while (parser.next() != XmlPullParser.END_TAG) {
             if (parser.getEventType() != XmlPullParser.START_TAG) {
                 continue;

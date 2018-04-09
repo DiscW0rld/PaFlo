@@ -26,12 +26,12 @@ public class Definition extends AppCompatActivity{
     private TextView defTitel;List<String> spinnerarray = new ArrayList<String>();
     DefinitionXmlParser definitionXmlParser = new DefinitionXmlParser();
 
-
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_definition);
         link = DefinitionsAuswahl.getLink();
-        XmlPullParser parser = getApplicationContext().getResources().getXml(R.xml.definitionen);
+        thisDef = DefinitionXmlParser.getDef(link, getApplicationContext());
+        //XmlPullParser parser = getApplicationContext().getResources().getXml(R.xml.definitionen);
         spinner = (Spinner) findViewById(R.id.defAuswahl);
         besch = (TextView) findViewById(R.id.defText);
         defTitel = (TextView) findViewById(R.id.defName);
@@ -41,13 +41,7 @@ public class Definition extends AppCompatActivity{
 
         for (int i=0; i<thisDef.size(); ++i){
             def[i] = thisDef.get(i).defTitel;
-        }
-
-        for (int i=0; i<thisDef.size(); ++i){
             defbeschreibung[i] = thisDef.get(i).erklaerung;
-        }
-
-        for (int i=0; i<thisDef.size(); ++i){
             spinnerarray.add(thisDef.get(i).defTitel);
         }
 
